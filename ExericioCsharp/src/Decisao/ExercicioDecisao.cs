@@ -7,6 +7,6 @@ namespace ExericioCsharp.src.Decisao
 {
     public class ExercicioDecisao
     {
-        
+    
     }
 }
