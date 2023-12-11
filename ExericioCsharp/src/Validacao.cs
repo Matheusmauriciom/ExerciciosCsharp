@@ -8,7 +8,7 @@ namespace ExericioCsharp.src
     public class Validacao
     {
         public static int ValidarNumero(string mensagem)
-        {
+        {   Console.Clear();
             int numero;
             bool entradaValida = false;
 
@@ -54,7 +54,7 @@ namespace ExericioCsharp.src
             return input;
         } 
         public static void AguardarTecla()
-        {
+        {   Console.WriteLine();
             Console.WriteLine("Precione qualquer tecla para finalizar...");
             Console.ReadKey();
         }
