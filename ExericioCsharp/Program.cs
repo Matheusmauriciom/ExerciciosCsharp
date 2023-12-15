@@ -5,8 +5,8 @@ using ExericioCsharp.src.Sequencial;
 
 
 
-ExercicioDecisao.Ex3();
-//ExercicioRepeticao.Ex2();
-//ExercicioSequencial.Ex2();
+//ExercicioDecisao.Ex5();
+//ExercicioRepeticao.Ex4();
+ExercicioSequencial.Ex3();
 
 

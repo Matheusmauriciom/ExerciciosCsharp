@@ -27,6 +27,28 @@ namespace ExericioCsharp.src.Repeticao
             }
             Validacao.AguardarTecla();
         }   
+
+        //03 Criar um algoritmo que calcule e apresente na tela a tabuada do 8 (1 a 10).
+        public static void Ex3()
+        {
+           for (int i = 1; i <= 10; i++)
+           {
+            Console.WriteLine($"8 x {i} = {i*8}");
+           }
+           Validacao.AguardarTecla();
+        }
+
+        //04 Criar um algoritmo que leia um número inteiro positivo e apresente na tela a sua tabuada (1 a 10).
+        public static void Ex4()
+        {
+            int numero = Validacao.ValidarNumero("Informe um número inteiro e positivo");
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{numero} x {i} = {i*numero}");
+            }
+            Validacao.AguardarTecla();
+        }
+    
     
     }
 }

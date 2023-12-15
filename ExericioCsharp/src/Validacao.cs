@@ -32,7 +32,6 @@ namespace ExericioCsharp.src
             //retorna o numero válido
             return numero;
         }
-
         public static string ValidarString(string mensagem)
         {
             string input;

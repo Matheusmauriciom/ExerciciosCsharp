@@ -41,8 +41,19 @@ namespace ExericioCsharp.src.Sequencial
         public static void Ex3()
         {
             int idade = Validacao.ValidarNumero("Informe sua idade: ");
-            
 
+            int dias = 365 * idade;
+            Console.WriteLine($"Você tem {idade} anos de idade e aproximadamente {dias} dias de vida");
+            int meses = 360 * idade /30;
+            Console.WriteLine($"Você tem {idade} anos de idade e  aproximadamente {meses} meses de vida");
+            Validacao.AguardarTecla();
+
+        }
+    
+        //04 - Criar um algoritmo que leia a idade de uma pessoa expressa em anos, mês e dias e apresente na tela a idade dessa pessoa expressa apenas em dias. Considerar ano com 365 dias e mês com 30 dias.
+        public static void Ex4()
+        {
+            int idade = Validacao.ValidarNumero("Informe sua idade em anos:");
         }
     }
 }
