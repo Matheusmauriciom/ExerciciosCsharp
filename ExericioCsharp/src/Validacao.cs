@@ -14,7 +14,7 @@ namespace ExericioCsharp.src
 
             do
             {   //solicita ao usuário que insira um número
-                Console.WriteLine(mensagem);
+                Console.Write(mensagem);
 
 
                 string input = Console.ReadLine();
@@ -56,6 +56,7 @@ namespace ExericioCsharp.src
         {   Console.WriteLine();
             Console.WriteLine("Precione qualquer tecla para finalizar...");
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }
