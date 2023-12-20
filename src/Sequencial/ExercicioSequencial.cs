@@ -10,7 +10,7 @@ namespace ExericioCsharp.src.Sequencial
         //01-Criar um algoritmo que leia um número inteiro e apresente na tela o seu antecedente e o seu sucessor.
         public static void Ex1()
         {
-            int num = Validacao.ValidarNumero("Informe um número");
+            double num = Validacao.ValidarNumero("Informe um número: ");
             Console.WriteLine($"O sucecessor de {num} é {num + 1}");
             Console.WriteLine($"O antecedente de {num} é {num - 1}");
 
@@ -78,20 +78,65 @@ namespace ExericioCsharp.src.Sequencial
             int idade = Validacao.ValidarNumero("Informe sua idade em anos:");
         }
 
-        //07 Criar um algoritmo que leia a idade de uma pessoa expressa em dias e apresente na tela a idade dessa pessoa expressa em anos, meses e dias. Considerar ano com 365 dias e mês com 30 dias.
-        public static  void Ex7()
+        //07 Criar um algoritmo que leia a idade de uma pessoa expressa em dias, e apresente na tela a idade dessa pessoa expressa em anos, meses e dias. Considerar ano com 365 dias e mês com 30 dias.
+        public static void Ex7()
         {
             int dias = Validacao.ValidarNumero("Informe sua idade em dias: ");
 
-            int idadeDias = 30;
-            int idadeAnos = 0;
-            int idadeMeses = 0;
+            int diasPorAno = 365;
+            int diasPorMes = 30;
+
+            int idadeAnos = dias / diasPorAno; // Calcula o número de anos completos
+            int diasRestantes = dias % diasPorAno; // Calcula os dias restantes após os anos
+
+            int idadeMeses = diasRestantes / diasPorMes; // Calcula o número de meses completos
+            int idadeDias = diasRestantes % diasPorMes; // Calcula os dias restantes após os meses
+
+            Console.WriteLine($"Sua idade é de {idadeAnos} anos, {idadeMeses} meses e {idadeDias} dias.");
+            Validacao.AguardarTecla();
         }
 
         //08 Criar um algoritmo que receba uma determinada hora (hora e minutos separados) e apresente na tela a hora em minutos.
+        public static void Ex8()
+        {
+            int horas = Validacao.ValidarNumero("Informe a hora (formato 24 horas): ");
+            int minutos = Validacao.ValidarNumero("Informe os minutos: ");
 
+            if (horas >= 0 && horas <= 23 && minutos >= 0 && minutos <= 59)
+            {
+                int horaMinuto = (horas * 60) + minutos;
+                Console.WriteLine($"O total de horas em minutos é de {horaMinuto} minutos.");
+            }
+            else
+            {
+                Console.WriteLine("Por favor, insira horas e minutos válidos.");
+            }
+            Validacao.AguardarTecla();
+        }
 
         //09 Criar um algoritmo que leia o tempo de duração de um evento em uma fábrica expressa em segundos e apresente-o na tela expresso em horas, minutos e segundos.
+        public static void Ex9()
+        {
+            int duracaoSegundos = Validacao.ValidarNumero("Qual o tempo de duração do evento em segundos? ");
 
+            int segundosPorHora = 3600; // 1 hora = 3600 segundos
+            int segundosPorMinuto = 60; // 1 minuto = 60 segundos
+
+            int horas = duracaoSegundos / segundosPorHora; // Calcula o número de horas completas
+            int minutosRestantes = (duracaoSegundos % segundosPorHora) / segundosPorMinuto; // Calcula os minutos restantes
+            int segundosRestantes = duracaoSegundos % segundosPorMinuto; // Calcula os segundos restantes
+
+            Console.WriteLine($"A duração do evento é de {horas} horas, {minutosRestantes} minutos e {segundosRestantes} segundos.");
+            Validacao.AguardarTecla();
+        }
+    
+        //10 Criar um algoritmo que leia uma velocidade fornecida em m/s (metros por segundo) e apresente na tela a velocidade em km/h. Para efetuar a conversão, multiplique o valor em m/s por 3.6.
+        public static void Ex10()
+        {
+            int velocidadeMs = Validacao.ValidarNumero("Informe a velocidade em m/s (metros por segundo): ");
+
+            double velocidadeKm = velocidadeMs * 3.6;
+            Console.WriteLine($"A velocidade de {velocidadeMs} m/s é de: {velocidadeKm} km/h");
+        }
     }
 }

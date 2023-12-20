@@ -131,10 +131,26 @@ namespace ExericioCsharp.src.Decisao
             {
                 Console.WriteLine("Você está gastando muito");
             }
+            Validacao.AguardarTecla();
         }
 
+        //10- Criar um algoritmo que leia o valor total de vendas do mês de um determinado vendedor e o seu nome, e apresente na tela o nome do vendedor quando o valor da venda estiver entre R$ 1.000,00 e R$ 5.000,00.
+        public static void Ex10()
+        {
+           string nome =  Validacao.ValidarString("Informe seu nome: ");
+            
+           double vendas = Validacao.ValidarNumero("Informe o total de vendas deste mês: ");
 
-
+            if(vendas >= 1000 && vendas <= 5000)
+            {
+                Console.WriteLine(nome);
+            }
+            else
+            {
+                Console.WriteLine($"Desculpe, {nome}, o valor de vendas não atende aos critérios desejados.");
+            }
+            Validacao.AguardarTecla();
+        }
 
 
     }

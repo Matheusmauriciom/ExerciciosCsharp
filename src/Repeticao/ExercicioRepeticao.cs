@@ -126,5 +126,26 @@ namespace ExericioCsharp.src.Repeticao
             }
             Validacao.AguardarTecla();
         }
+
+        //10 Criar um algoritmo que efetue a leitura de 10 valores numéricos inteiros e, ao final, apresente na tela a soma e a média dos valores lidos.
+        public static void Ex10()
+        {
+            int soma = 0;
+            Console.WriteLine("Informe 10 valores inteiros: ");
+            Console.WriteLine("");
+            for (int i = 1; i <= 10; i++)
+            {
+
+                Console.WriteLine($"Informe o {i}º numero: ");
+                int numero = int.Parse(Console.ReadLine());
+                soma += numero;
+
+            }
+            double media = soma / 10;
+            Console.WriteLine($"A soma dos valores é: {soma}");
+            Console.WriteLine($"A média dos valores é: {media}");
+            Validacao.AguardarTecla();
+        }
+
     }
 }
