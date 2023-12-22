@@ -32,7 +32,6 @@ namespace ExericioCsharp.src.Sequencial
         //03-Criar um algoritmo que leia dois números inteiros e apresenta na tela a soma, subtração, multiplicação e divisão dos respectivos números.
         public static void Ex3()
         {
-
             int num1 = Validacao.ValidarNumero("Informe um número inteiro");
             int num2 = Validacao.ValidarNumero("Informe outro número inteiro");
 
@@ -137,6 +136,36 @@ namespace ExericioCsharp.src.Sequencial
 
             double velocidadeKm = velocidadeMs * 3.6;
             Console.WriteLine($"A velocidade de {velocidadeMs} m/s é de: {velocidadeKm} km/h");
+            Validacao.AguardarTecla();
         }
+
+        //11 Criar um algoritmo que receba o valor do salário de um funcionário e o valor do salário mínimo e apresente na tela quantos salários mínimos ganha esse funcionário.
+        public static void Ex11()
+        {
+            Console.Write("Informe seu salário: ");
+            double salario = double.Parse(Console.ReadLine());
+
+            double valorSalarioMin = 1320.00;
+
+            double total = salario / valorSalarioMin;
+
+            Console.WriteLine($"Você recebe o total de {total:F2} salários mínimos");
+            Validacao.AguardarTecla();
+        }
+    
+        //12 Criar um algoritmo que leia uma distância e o total de litros de combustível gasto por um automóvel para percorrê-la, calcule e apresente na tela o consumo médio de combustível.
+        public static void Ex12()
+        {
+            Console.Write("Informe a distancia do seu destino: ");
+            double  distancia  = double.Parse(Console.ReadLine());
+
+            Console.Write("Informe o total de listros gasto para percorrer ");
+            double combustivel = double.Parse(Console.ReadLine());
+
+            double consumoMedio = distancia / combustivel;
+            Console.WriteLine($"O consumo médio gasto para percorrer a distancia de {distancia} Km é de {consumoMedio:F2}");
+            Validacao.AguardarTecla();
+        }
+    
     }
 }

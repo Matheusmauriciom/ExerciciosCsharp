@@ -147,5 +147,51 @@ namespace ExericioCsharp.src.Repeticao
             Validacao.AguardarTecla();
         }
 
+        //11 - Criar um algoritmo que leia o número de horas trabalhadas diárias (NH) de um funcionário por um período de 20 dias (ele trabalhou todos os 20 dias) e apresente na tela o total de horas trabalhadas por ele nesse período.
+        public static void Ex11()
+        {
+            int total = 0;
+            for (int i = 1; i <= 20; i++)
+            {
+                 Console.WriteLine($"Informe a quantidade de horas trabalhadas no {i}º dia : ");
+                 int nh = int.Parse(Console.ReadLine());
+
+                total += nh;
+            }
+            Console.WriteLine($"O total de horas trabalhadas em 20 dias, foi de {total} horas.");
+            Validacao.AguardarTecla();
+        }
+
+        // 12 Um professor possui 3 turmas, e cada turma possui 5 alunos. Criar um algoritmo que leia a nota dos alunos de cada uma das turmas e apresente a média das notas por turma.
+        public static void Ex12()
+        {           
+                double mediaTurmaA =0, mediaTurmaB =0, mediaTurmaC =0;
+                
+                for (int i = 1; i <= 5; i++)
+                {   
+                    Console.WriteLine($"Informe a nota do {i}º aluno da turma A: ");
+                    double notaA = double.Parse(Console.ReadLine());
+                    mediaTurmaA += notaA /5;
+
+                }
+                for (int i = 1; i <= 5; i++)
+                {   
+                    Console.WriteLine($"Informe a nota do {i}º aluno da turma B: ");
+                    double notaB  = double.Parse(Console.ReadLine());
+                    mediaTurmaB  += notaB /5;
+
+                }
+                for (int i = 1; i <= 5; i++)
+                {   
+                    Console.WriteLine($"Informe a nota do {i}º aluno da turma C: ");
+                    double notaC = double.Parse(Console.ReadLine());
+                    mediaTurmaC += notaC /5;
+
+                }
+
+               Console.WriteLine($"Média da turma A: {mediaTurmaA}");
+               Console.WriteLine($"Média da turma B: {mediaTurmaB}");
+               Console.WriteLine($"Média da turma C: {mediaTurmaC}");
+        }   
     }
 }

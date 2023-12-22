@@ -152,6 +152,34 @@ namespace ExericioCsharp.src.Decisao
             Validacao.AguardarTecla();
         }
 
+        //11 - Criar um algoritmo que leia um valor numérico inteiro positivo ou negativo e apresentar o valor lido como sendo um valor positivo, ou seja, se o valor lido for menor que zero, ele deve ser multiplicado por -1.
+          public static void Ex11()
+          {
+            int numero = Validacao.ValidarNumero("Informe um número inteiro negativo ou positivo: ");
 
+            if(numero < 0)
+            {
+                int resultado = numero * -1;
+                Console.WriteLine($"O número informado é negativo, então ele será convertido para positivo: {resultado}");
+            }
+            else{
+                Console.WriteLine($"O número {numero} é positivo.");
+            }
+            Validacao.AguardarTecla();
+          }  
+    
+        //12 Criar um algoritmo que leia um número inteiro e apresente na tela o número lido caso ele seja divisível por 4 mas não por 5.
+        public static void Ex12()
+        {
+            int numero = Validacao.ValidarNumero("Informe um número inteiro: ");
+           if(numero % 4 == 0 && numero % 5 != 0)
+           {
+             Console.WriteLine("O número atende aos critérios: é divisível por 4, mas não por 5.");
+           }
+           else{
+            Console.WriteLine("O número não atende aos critérios: não é divisível por 4 ou é divisível por 5.");
+           }
+           Validacao.AguardarTecla();
+        }
     }
 }
