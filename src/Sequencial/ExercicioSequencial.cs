@@ -10,7 +10,7 @@ namespace ExericioCsharp.src.Sequencial
         //01-Criar um algoritmo que leia um número inteiro e apresente na tela o seu antecedente e o seu sucessor.
         public static void Ex1()
         {
-            double num = Validacao.ValidarNumero("Informe um número: ");
+            int num = Validacao.ValidarNumero("Informe um número: ");
             Console.WriteLine($"O sucecessor de {num} é {num + 1}");
             Console.WriteLine($"O antecedente de {num} é {num - 1}");
 
@@ -74,7 +74,14 @@ namespace ExericioCsharp.src.Sequencial
         //06 - Criar um algoritmo que leia a idade de uma pessoa expressa em anos, mês e dias e apresente na tela a idade dessa pessoa expressa apenas em dias. Considerar ano com 365 dias e mês com 30 dias.
         public static void Ex6()
         {
-            int idade = Validacao.ValidarNumero("Informe sua idade em anos:");
+            int anos = Validacao.ValidarNumero("Informe sua idade em anos:");
+            int meses = Validacao.ValidarNumero("Informe o número de meses:");
+            int dias = Validacao.ValidarNumero("Informe o número de dias:");
+
+            int idadeEmDias = anos * 365 + meses * 30 + dias;
+
+            Console.WriteLine($"Sua idade em dias é: {idadeEmDias} dias.");
+            Validacao.AguardarTecla();
         }
 
         //07 Criar um algoritmo que leia a idade de uma pessoa expressa em dias, e apresente na tela a idade dessa pessoa expressa em anos, meses e dias. Considerar ano com 365 dias e mês com 30 dias.
@@ -128,7 +135,7 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"A duração do evento é de {horas} horas, {minutosRestantes} minutos e {segundosRestantes} segundos.");
             Validacao.AguardarTecla();
         }
-    
+
         //10 Criar um algoritmo que leia uma velocidade fornecida em m/s (metros por segundo) e apresente na tela a velocidade em km/h. Para efetuar a conversão, multiplique o valor em m/s por 3.6.
         public static void Ex10()
         {
@@ -142,9 +149,7 @@ namespace ExericioCsharp.src.Sequencial
         //11 Criar um algoritmo que receba o valor do salário de um funcionário e o valor do salário mínimo e apresente na tela quantos salários mínimos ganha esse funcionário.
         public static void Ex11()
         {
-            Console.Write("Informe seu salário: ");
-            double salario = double.Parse(Console.ReadLine());
-
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
             double valorSalarioMin = 1320.00;
 
             double total = salario / valorSalarioMin;
@@ -152,20 +157,112 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"Você recebe o total de {total:F2} salários mínimos");
             Validacao.AguardarTecla();
         }
-    
+
         //12 Criar um algoritmo que leia uma distância e o total de litros de combustível gasto por um automóvel para percorrê-la, calcule e apresente na tela o consumo médio de combustível.
         public static void Ex12()
         {
-            Console.Write("Informe a distancia do seu destino: ");
-            double  distancia  = double.Parse(Console.ReadLine());
+            double distancia = Validacao.ValidarNumeroDouble("Informe a distância do seu destino: ");
+            double combustivel = Validacao.ValidarNumeroDouble("Informe o total de listros gasto para percorrer: ");
 
-            Console.Write("Informe o total de listros gasto para percorrer ");
-            double combustivel = double.Parse(Console.ReadLine());
 
             double consumoMedio = distancia / combustivel;
             Console.WriteLine($"O consumo médio gasto para percorrer a distancia de {distancia} Km é de {consumoMedio:F2}");
             Validacao.AguardarTecla();
         }
-    
+
+        //13 Criar um algoritmo que receba três notas de um aluno e apresente na tela a média aritmética entre essas notas.
+        public static void Ex13()
+        {
+            double nota1 = Validacao.ValidarNumeroDouble("Informe a primeira nota: ");
+            double nota2 = Validacao.ValidarNumeroDouble("Informe a segunda nota: ");
+            double nota3 = Validacao.ValidarNumeroDouble("Informe a terceira nota: ");
+
+            double media = (nota1 + nota2 + nota3) / 3;
+            Console.WriteLine($"A média das notas foi de: {media:F2}");
+            Validacao.AguardarTecla();
+        }
+
+        //14 Criar um programa que calcule e apresente na tela a área de um retângulo. Fórmula: area = base.altura
+        public static void Ex14()
+        {
+            double baseRetangulo = Validacao.ValidarNumeroDouble("Informe a altura (h) do retângulo: ");
+            double alturaRetangulo = Validacao.ValidarNumeroDouble("Informe a base (b) retângulo: ");
+
+            double areaRetangulo = baseRetangulo * alturaRetangulo;
+            Console.WriteLine($"A área do retângulo é de: {areaRetangulo}");
+            Validacao.AguardarTecla();
+        }
+
+        // 15 Criar um programa que calcule e apresenta na tela a área de um triângulo. Fórmula: area = base.altura /2
+        public static void Ex15()
+        {
+            double baseTriangulo = Validacao.ValidarNumeroDouble("Informe a altura (h) do triângulo: ");
+            double alturaTriangulo = Validacao.ValidarNumeroDouble("Informe a base (b) triângulo: ");
+
+            double areaTriangulo = baseTriangulo * alturaTriangulo / 2;
+            Console.WriteLine($"A área do retângulo é de: {areaTriangulo}");
+            Validacao.AguardarTecla();
+        }
+
+        //16 Criar um algoritmo que calcule e apresente na tela o volume de uma esfera de raio R, em que R é um dado fornecido pelo usuário. O volume de uma esfera é dado por V= 4/3 ​π R*3.
+        public static void Ex16()
+        {
+            double r = Validacao.ValidarNumero("Informe o raio da esfera: ");
+
+            double volumeEsfera = 4 * Math.PI * Math.Pow(r, 3) / 3;
+            Console.WriteLine($"O volume da esfera de raio {r} é: {volumeEsfera:F2}");
+        }
+
+        //17 Criar um algoritmo que calcule e apresente na tela a área de um trapézio. Fórmula: A=((basemaior+basemenor)∗altura)/2
+        public static void Ex17()
+        {
+            double baseMaior = Validacao.ValidarNumeroDouble("Informe a base maior(B) do trapézio: ");
+            double baseMenor = Validacao.ValidarNumeroDouble("Informe a base menor(b) do trapézio: ");
+            double altura = Validacao.ValidarNumeroDouble("Informe a altura(h) trapézio: ");
+
+            double area = (baseMaior + baseMenor) * altura / 2;
+            Console.WriteLine($"A área do trapézio é: {area}");
+            Validacao.AguardarTecla();
+        }
+
+        //18 Criar um algoritmo que calcule e apresente na tela o volume de uma caixa retangular, utilizando a fórmula: volume=comprimento∗largura∗altura.
+        public static void Ex18()
+        {
+            double comprimento = Validacao.ValidarNumero("Informe o comprimento da caixa retangular: ");
+            double largura = Validacao.ValidarNumero("Informe a largura da caixa retangular: ");
+            double altura = Validacao.ValidarNumero("Informe a altura da caixa retangular: ");
+
+            double volume = comprimento * largura * altura;
+
+            Console.WriteLine($"O volume da caixa retangular é de {volume} cm3");
+            Validacao.AguardarTecla();
+        }
+
+        //19 Criar um algoritmo que lê dois números, a base e o expoente, e imprime a potência (base elevada ao expoente). 
+        //Dica: use a função matemática ​Math.pow()​. Exemplo: 5 elevado ao cubo ficaria Math.pow(5, 3) ​. Você pode trocar esses números por variáveis.
+        public static void Ex19()
+        {
+            double num1 = Validacao.ValidarNumeroDouble("Informe a base: ");
+            double num2 = Validacao.ValidarNumeroDouble("Informe o expoente: ");
+
+            double potencia = Math.Pow(num1, num2);
+            Console.WriteLine($"A potência é: {potencia} ");
+            Validacao.AguardarTecla();
+        }
+
+        // 20 Criar um algoritmo que lê dois números e imprime a soma dos quadrados dos dois números. O quadrado de um número A é representado por A² = A * A.
+        public static void Ex20()
+        {
+            double num1 = Validacao.ValidarNumero("Informe um número: ");
+            double num2 = Validacao.ValidarNumero("Informe outro número: ");
+
+            double quadradoNum1 = Math.Pow(num1, 2);
+            double quadradoNum2 = Math.Pow(num2, 2);
+
+            double somaQuadrado = quadradoNum1 + quadradoNum2;
+
+            Console.WriteLine($"A soma dos quadrados de {num1} e {num2} é: {somaQuadrado}");
+        }
+
     }
 }

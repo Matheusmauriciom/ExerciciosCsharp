@@ -14,12 +14,12 @@ namespace ExericioCsharp.src.Decisao
             Console.WriteLine(num < 0 ? $"O número {num} é negativo" : $"O número {num} é positivo");
             Validacao.AguardarTecla();
         }
-         
+
         // 02 Criar um algoritmo que leia dois números L e R. O programa deve verificar a maior área entre um quadrado de lado L e um círculo de raio R. Imprimir na tela qual o maior: "Quadrado" ou "Circulo".
-        public static void Ex2() 
+        public static void Ex2()
         {
-            double ladoL = Validacao.ValidarNumero("Informe o lado do quadrado: ");
-            double raioR = Validacao.ValidarNumero("Informe o raio do circulo: ");
+            double ladoL = Validacao.ValidarNumeroDouble("Informe o lado do quadrado: ");
+            double raioR = Validacao.ValidarNumeroDouble("Informe o raio do circulo: ");
 
             // double areaQuadrado = ladoL * ladoL;
             double areaQuadrado = Math.Pow(ladoL, 2);
@@ -63,25 +63,25 @@ namespace ExericioCsharp.src.Decisao
         //04 Criar um algoritmo que leia um valor e apresente na tela se esse valor é positivo ou negativo (considere o valor zero como positivo).
         public static void Ex4()
         {
-            double valor = Validacao.ValidarNumero("Informe um número: ");
+            double valor = Validacao.ValidarNumeroDouble("Informe um número: ");
 
-           Console.WriteLine(valor < 0 ? $"O número {valor} é negativo" : $"O número {valor} é positivo");
-           Validacao.AguardarTecla();
+            Console.WriteLine(valor < 0 ? $"O número {valor} é negativo" : $"O número {valor} é positivo");
+            Validacao.AguardarTecla();
         }
 
         // 05 Criar um algoritmo que leia dois números e imprime a divisão do maior pelo menor.
         public static void Ex5()
         {
-            double num1 = Validacao.ValidarNumero("Informe o primeiro número: ");
-            double num2 = Validacao.ValidarNumero("Informe o segundo número: ");
+            double num1 = Validacao.ValidarNumeroDouble("Informe o primeiro número: ");
+            double num2 = Validacao.ValidarNumeroDouble("Informe o segundo número: ");
 
             if (num1 > num2)
             {
-                Console.WriteLine($"{num1} / {num2} = {num1/num2:F2}");
+                Console.WriteLine($"{num1} / {num2} = {num1 / num2:F2}");
             }
             else if (num2 > num1)
             {
-                Console.WriteLine($"{num2} / {num1} = {num2/num1:F2}");
+                Console.WriteLine($"{num2} / {num1} = {num2 / num1:F2}");
             }
             else
             {
@@ -93,7 +93,7 @@ namespace ExericioCsharp.src.Decisao
         //06 - Criar um algoritmo que leia uma velocidade e caso o valor lido seja maior que 70 apresentar na tela Multado.
         public static void Ex6()
         {
-            int velocidade = Validacao.ValidarNumero("Informe e velocidade do veículo: ");
+            double velocidade = Validacao.ValidarNumeroDouble("Informe e velocidade do veículo: ");
             Console.WriteLine(velocidade >= 70 ? "Multado" : "Não multado");
             Validacao.AguardarTecla();
         }
@@ -101,16 +101,16 @@ namespace ExericioCsharp.src.Decisao
         // 07 - Criar um algoritmo que leia uma velocidade, caso o valor lido for maior que 70 apresentar na tela a mensagem Multado, caso contrário apresentar na tela a mensagem Não Multado.
         public static void Ex7()
         {
-            int velocidade = Validacao.ValidarNumero("Informe e velocidade do veículo: ");
+            double velocidade = Validacao.ValidarNumeroDouble("Informe e velocidade do veículo: ");
             Console.WriteLine(velocidade >= 70 ? "Multado" : "Não multado");
             Validacao.AguardarTecla();
         }
-        
+
         //08 - Uma empresa decide dar aumento de 15% aos funcionários cujo salário é inferior a 500 reais. 
         //Criar um algoritmo que leia o salário de um funcionário e apresente na tela o valor do salário reajustado ou o valor do salário informado caso ele não tenho direito ao reajuste. */
         public static void Ex8()
         {
-            int salario = Validacao.ValidarNumero("Informe seu salário: ");
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
             if (salario < 500)
             {
                 double reajuste = salario * 15 / 100;
@@ -126,7 +126,7 @@ namespace ExericioCsharp.src.Decisao
         //09 Criar um algoritmo que leia o valor de uma conta de luz e, caso o valor seja maior que R$ 50,00 e menor que R$ 500,00 apresente na tela a mensagem Você está gastando muito. Caso contrário não exiba mensagem nenhuma.
         public static void Ex9()
         {
-            int valorLuz = Validacao.ValidarNumero("Informe o valor da conta de luz: ");
+            double valorLuz = Validacao.ValidarNumeroDouble("Informe o valor da conta de luz: ");
             if (valorLuz >= 50 && valorLuz <= 500)
             {
                 Console.WriteLine("Você está gastando muito");
@@ -137,11 +137,11 @@ namespace ExericioCsharp.src.Decisao
         //10- Criar um algoritmo que leia o valor total de vendas do mês de um determinado vendedor e o seu nome, e apresente na tela o nome do vendedor quando o valor da venda estiver entre R$ 1.000,00 e R$ 5.000,00.
         public static void Ex10()
         {
-           string nome =  Validacao.ValidarString("Informe seu nome: ");
-            
-           double vendas = Validacao.ValidarNumero("Informe o total de vendas deste mês: ");
+            string nome = Validacao.ValidarString("Informe seu nome: ");
 
-            if(vendas >= 1000 && vendas <= 5000)
+            double vendas = Validacao.ValidarNumeroDouble("Informe o total de vendas deste mês: ");
+
+            if (vendas >= 1000 && vendas <= 5000)
             {
                 Console.WriteLine(nome);
             }
@@ -153,33 +153,154 @@ namespace ExericioCsharp.src.Decisao
         }
 
         //11 - Criar um algoritmo que leia um valor numérico inteiro positivo ou negativo e apresentar o valor lido como sendo um valor positivo, ou seja, se o valor lido for menor que zero, ele deve ser multiplicado por -1.
-          public static void Ex11()
-          {
+        public static void Ex11()
+        {
             int numero = Validacao.ValidarNumero("Informe um número inteiro negativo ou positivo: ");
 
-            if(numero < 0)
+            if (numero < 0)
             {
                 int resultado = numero * -1;
                 Console.WriteLine($"O número informado é negativo, então ele será convertido para positivo: {resultado}");
             }
-            else{
+            else
+            {
                 Console.WriteLine($"O número {numero} é positivo.");
             }
             Validacao.AguardarTecla();
-          }  
-    
+        }
+
         //12 Criar um algoritmo que leia um número inteiro e apresente na tela o número lido caso ele seja divisível por 4 mas não por 5.
         public static void Ex12()
         {
             int numero = Validacao.ValidarNumero("Informe um número inteiro: ");
-           if(numero % 4 == 0 && numero % 5 != 0)
-           {
-             Console.WriteLine("O número atende aos critérios: é divisível por 4, mas não por 5.");
-           }
-           else{
-            Console.WriteLine("O número não atende aos critérios: não é divisível por 4 ou é divisível por 5.");
-           }
-           Validacao.AguardarTecla();
+            if (numero % 4 == 0 && numero % 5 != 0)
+            {
+                Console.WriteLine("O número atende aos critérios: é divisível por 4, mas não por 5.");
+            }
+            else
+            {
+                Console.WriteLine("O número não atende aos critérios: não é divisível por 4 ou é divisível por 5.");
+            }
+            Validacao.AguardarTecla();
         }
+
+        //13 Criar um algoritmo que leia duas variáveis do tipo lógico, caso ambas sejam verdadeiras apresentar na tela Tem Desconto.
+        public static void Ex13()
+        {
+
+            Console.Write("Informe o valor da primeira variável (true/false): ");
+            bool primeiraCondicao = bool.Parse(Console.ReadLine());
+
+            Console.Write("Informe o valor da segunda variável (true/false): ");
+            bool segundaCondicao = bool.Parse(Console.ReadLine());
+
+            if (primeiraCondicao && segundaCondicao)
+            { Console.WriteLine("Tem Desconto"); }
+
+            else
+            { Console.WriteLine("Não tem Desconto"); }
+            Validacao.AguardarTecla();
+        }
+
+        //14 Criar um algoritmo que leia um número inteiro e apresente na tela o número lido caso ele seja divisível por 2 e 3. 
+        public static void Ex14()
+        {
+            int num = Validacao.ValidarNumero("Informe um número intero: ");
+
+            if (num % 2 == 0 && num % 3 == 0)
+            {
+                Console.WriteLine($"O número {num} é divisível por 2 e 3");
+            }
+            else
+            {
+                Console.WriteLine($"O número {num} não é divisível por 2 e 3");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        //15 Criar um algoritmo que leia um número inteiro e apresente na tela o número lido caso ele seja divisível por 4 ou 5.
+        public static void Ex15()
+        {
+            int num = Validacao.ValidarNumero("Informe um número intero: ");
+
+            if (num % 4 == 0 || num % 5 == 0)
+            {
+                Console.WriteLine($"O número {num} é divisível por 4 ou 5");
+            }
+            else
+            {
+                Console.WriteLine($"O número {num} não é divisível por 4 ou 5");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 16 Criar um algoritmo que leia dois números inteiros e apresente uma mensagem indicando se o primeiro número é múltiplo do segundo.
+        public static void Ex16()
+        {
+            int num1 = Validacao.ValidarNumero("Informe um número inteiro: ");
+            int num2 = Validacao.ValidarNumero("Informe outro número inteiro: ");
+
+            if (num2 != 0 && num2 == 0)
+            {
+                Console.WriteLine($"{num1} é múltiplo de {num2}.");
+            }
+            else
+            {
+                Console.WriteLine($"{num1} não é múltiplo de {num2}.");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 17 As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia. E R$ 1,00 se forem compradas pelo menos 12. 
+        //Criar um algoritmo que leia o número de maçãs compradas, calcule e apresente na tela o custo total da compra.
+        public static void Ex17()
+        {   
+
+            int numeroMaca = Validacao.ValidarNumero("Informe o número de maças compradas: ");
+
+            if(numeroMaca < 12)
+            {
+                double total = numeroMaca * 1.30;
+                Console.WriteLine($"O valor total na compra de {numeroMaca} maças é de R${total:F2} reais.");
+            }
+            else
+            {
+                    double total = numeroMaca * 1.00;
+                    Console.WriteLine($"O valor total na compra de {numeroMaca} maças é de R${total:F2} reais.");
+            }
+            Validacao.AguardarTecla();
+
+        }
+
+        // 18 Criar um algoritmo que leia dois valores inteiros (considere que não serão lidos valores iguais) e apresente-os em ordem crescente.
+        public static void Ex18()
+        {
+            int num1 = Validacao.ValidarNumero("Inform um número inteiro: ");
+            int num2 = Validacao.ValidarNumero("Inform outro número inteiro: ");
+
+            if(num1 > num2) {
+                Console.WriteLine($"{num2} {num1}");
+            }
+            else if (num2 > num1)
+            {
+                Console.WriteLine($"{num1} {num2}");
+            }
+            else if(num1 == num2){
+                Console.WriteLine("Operação inválida, os dois números são iguais.");
+            }
+            Validacao.AguardarTecla();
+
+        }
+    
+        //19 Criar um algoritmo que leia a idade de uma pessoa e apresente na tela uma mensagem de maioridade ou não.
+        public static void Ex19()
+        {
+            int idade = Validacao.ValidarNumero("Informe sua idade: ");
+            Console.WriteLine( idade < 18 ? "Menor de idade" : "Maior de idade");
+            Validacao.AguardarTecla();
+
+        }
+    
     }
+
 }

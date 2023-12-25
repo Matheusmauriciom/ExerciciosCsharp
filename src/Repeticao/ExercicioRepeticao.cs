@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ExericioCsharp.src.Repeticao
 {
@@ -153,8 +154,8 @@ namespace ExericioCsharp.src.Repeticao
             int total = 0;
             for (int i = 1; i <= 20; i++)
             {
-                 Console.WriteLine($"Informe a quantidade de horas trabalhadas no {i}º dia : ");
-                 int nh = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Informe a quantidade de horas trabalhadas no {i}º dia : ");
+                int nh = int.Parse(Console.ReadLine());
 
                 total += nh;
             }
@@ -164,34 +165,184 @@ namespace ExericioCsharp.src.Repeticao
 
         // 12 Um professor possui 3 turmas, e cada turma possui 5 alunos. Criar um algoritmo que leia a nota dos alunos de cada uma das turmas e apresente a média das notas por turma.
         public static void Ex12()
-        {           
-                double mediaTurmaA =0, mediaTurmaB =0, mediaTurmaC =0;
-                
-                for (int i = 1; i <= 5; i++)
-                {   
-                    Console.WriteLine($"Informe a nota do {i}º aluno da turma A: ");
-                    double notaA = double.Parse(Console.ReadLine());
-                    mediaTurmaA += notaA /5;
+        {
+            double mediaTurmaA = 0, mediaTurmaB = 0, mediaTurmaC = 0;
+
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Informe a nota do {i}º aluno da turma A: ");
+                double notaA = double.Parse(Console.ReadLine());
+                mediaTurmaA += notaA / 5;
+
+            }
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Informe a nota do {i}º aluno da turma B: ");
+                double notaB = double.Parse(Console.ReadLine());
+                mediaTurmaB += notaB / 5;
+
+            }
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Informe a nota do {i}º aluno da turma C: ");
+                double notaC = double.Parse(Console.ReadLine());
+                mediaTurmaC += notaC / 5;
+
+            }
+
+            Console.WriteLine($"Média da turma A: {mediaTurmaA}");
+            Console.WriteLine($"Média da turma B: {mediaTurmaB}");
+            Console.WriteLine($"Média da turma C: {mediaTurmaC}");
+            Validacao.AguardarTecla();
+        }
+
+        //13 Criar um algoritmo que apresente na tela a tabuada dos números de 1 a 9.
+        public static void Ex13()
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                Console.WriteLine($"Tabuada do número {i}");
+                Console.WriteLine("-------------------");
+                for (int t = 1; t <= 10; t++)
+                {
+                    Console.WriteLine($"{i} x {t} = {i * t}");
 
                 }
-                for (int i = 1; i <= 5; i++)
-                {   
-                    Console.WriteLine($"Informe a nota do {i}º aluno da turma B: ");
-                    double notaB  = double.Parse(Console.ReadLine());
-                    mediaTurmaB  += notaB /5;
+                Console.WriteLine("-------------------");
+            }
+        }
 
+        //14 Criar um algoritmo que leia um número inteiro e repita a operação de multiplicar o número por 3 (apresentando o novo valor) até que o número seja maior que 100. 
+        //Por exemplo, se o usuário informar 5, o algoritmo deve apresentar na tela a seguinte sequência: 5 15 45 135.
+        public static void Ex14()
+        {
+            int num = Validacao.ValidarNumero("Informe um número intero: ");
+
+            while (num <= 100)
+            {
+                num = num * 3;
+                Console.Write($"{num}//");
+
+            }
+            Console.WriteLine();
+        }
+
+        // 15 O quadrado de um número natural N é dado pela soma dos N primeiros números ímpares consecutivos. 
+        //Por exemplo 1² = 1,2² = 1 + 3,3²  etc. Criar um algoritmo que leia um número inteiro positivo maior que zero, calcule e apresente na tela seu quadrado usando a soma de ímpares ao invés de produto.
+        public static void Ex15()
+        {
+            int numero = Validacao.ValidarNumero("Digite um número inteiro positivo maior que zero: ");
+
+            if (numero > 0)
+            {
+                int quadrado = 0;
+                int imparAtual = 1;
+
+                for (int i = 0; i < numero; i++)
+                {
+                    quadrado += imparAtual;
+                    imparAtual += 2;
                 }
-                for (int i = 1; i <= 5; i++)
-                {   
-                    Console.WriteLine($"Informe a nota do {i}º aluno da turma C: ");
-                    double notaC = double.Parse(Console.ReadLine());
-                    mediaTurmaC += notaC /5;
+                Console.WriteLine($"O quadrado de {numero} usando a soma de ímpares é: {quadrado}");
+            }
+            else
+            {
+                Console.WriteLine("Por favor, digite um número inteiro positivo maior que zero.");
+            }
+            Validacao.AguardarTecla();
+        }
 
+        //16 Uma loja está levantando o valor total de todas as mercadorias em estoque. Criar um algoritmo que permita a entrada dos seguintes dados: 
+        //1- o número total de mercadorias no estoque; 2- o valor de cada mercadoria. 
+        //Ao final, apresentar na tela o valor total em estoque e a média dos valores das mercadorias.
+        public static void Ex16()
+        {
+            int mercadoriaEstoque = Validacao.ValidarNumero("Digite o total de mercadorias no estoque: ");
+
+            double valor = 0;
+
+            for (int i = 1; i <= mercadoriaEstoque; i++)
+            {
+                int valorMercadoria = Validacao.ValidarNumero($"Digite o valor da {i} mercadoria: ");
+                valor += valorMercadoria;
+
+            }
+            double total = valor / mercadoriaEstoque;
+            Console.WriteLine($"Valor total em estoque: {valor}");
+            Console.WriteLine($"Média dos valores das mercadorias: R${total}");
+
+        }
+
+        // 17 Um número inteiro é perfeito se o dobro dele é igual à soma de todos os seus divisores. 
+        // Criar um algoritmo que leia um número inteiro positivo N e apresente na tela a lista de todos os números inteiros positivos perfeitos menores N.
+        public static void Ex17()
+        {
+            int n = Validacao.ValidarNumero("Informe um número positivo: ");
+
+            Console.WriteLine($"Números perfeitos menores que {n}:");
+
+            bool encontrouPerfeito = false;
+
+            for (int i = 2; i < n; i++) // Começando de 2 para excluir o 1
+            {
+                int somaDivisores = 1; // Incluindo o próprio número como divisor
+
+                for (int j = 2; j <= i / 2; j++) // Ajustando a condição do loop interno
+                {
+                    if (i % j == 0)
+                    {
+                        somaDivisores += j;
+                    }
                 }
 
-               Console.WriteLine($"Média da turma A: {mediaTurmaA}");
-               Console.WriteLine($"Média da turma B: {mediaTurmaB}");
-               Console.WriteLine($"Média da turma C: {mediaTurmaC}");
-        }   
+                if (somaDivisores == i)
+                {
+                    Console.WriteLine(i);
+                    encontrouPerfeito = true;
+                }
+            }
+
+            if (!encontrouPerfeito)
+            {
+                Console.WriteLine($"Não existem números perfeitos menores que {n}.");
+            }
+        }
+
+        //18 -Criar um algoritmo que leia um número inteiro positivo e apresente na tela o número de algarismos deste número.
+        public static void Ex18()
+        {
+            int numero = Validacao.ValidarNumero("Informe um número inteiro positivo: ");
+
+            // Garante que o número seja não negativo
+            if (numero < 0)
+            {
+                Console.WriteLine("Número inválido. Informe um número inteiro positivo.");
+                return;
+            }
+
+            // Inicializa o contador de algarismos
+            int numeroDeAlgarismos = 0;
+
+            for (int i = numero; i != 0; i /= 10)
+            {
+                numeroDeAlgarismos++;
+            }
+
+            Console.WriteLine($"O número {numero} tem {numeroDeAlgarismos} algarismos.");
+        }
+
+        //19- Criar um algoritmo que apresente na tela os valores da conversão de graus Celsius em Fahrenheit, de 10 em 10, iniciando a contagem em 10 graus em terminando em 200 graus. 
+        //A fórmula de conversão é: ​ F = C * 1.8 + 32
+        public static void Ex19()
+        {   
+            for (int celsius = 10; celsius <= 200; celsius += 10)
+            {   
+                double fahrenheit = celsius * 1.8 + 32;
+                Console.WriteLine($"Celsius: {celsius}, Fahrenheit: {fahrenheit}");
+            }
+            Validacao.AguardarTecla();
+        }
+    
+    
     }
 }
