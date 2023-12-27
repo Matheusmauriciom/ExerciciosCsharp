@@ -334,15 +334,107 @@ namespace ExericioCsharp.src.Repeticao
         //19- Criar um algoritmo que apresente na tela os valores da conversão de graus Celsius em Fahrenheit, de 10 em 10, iniciando a contagem em 10 graus em terminando em 200 graus. 
         //A fórmula de conversão é: ​ F = C * 1.8 + 32
         public static void Ex19()
-        {   
+        {
             for (int celsius = 10; celsius <= 200; celsius += 10)
-            {   
+            {
                 double fahrenheit = celsius * 1.8 + 32;
                 Console.WriteLine($"Celsius: {celsius}, Fahrenheit: {fahrenheit}");
             }
             Validacao.AguardarTecla();
         }
-    
-    
+
+        //20 Criar um algoritmo que apresente na tela os valores da conversão de graus Fahrenheit em Celsius, de 2 em 2, iniciando a contagem em 50 graus e terminando em 66 graus. 
+        //A fórmula de conversão é: C = F - 32 / 1.8
+        public static void Ex20()
+        {
+            for (int fahrenheit = 50; fahrenheit <= 66; fahrenheit += 2)
+            {
+                double celsius = (fahrenheit - 32) / 1.8;
+                Console.WriteLine($"Fahrenheit: {fahrenheit}, Celsius: {celsius:F2}");
+
+            }
+            Validacao.AguardarTecla();
+        }
+
+        //21 Criar um algoritmo que leia dois números inteiros (positivos e maiores que zero) e apresente na tela o resultado da multiplicação dos números. 
+        //Não utilize o operador de multiplicação "*". Use para a solução deste problema estrutura de repetição (laço).
+        public static void Ex21()
+        {
+            int num1 = Validacao.ValidarNumero("Informe um número inteiro: ");
+            int num2 = Validacao.ValidarNumero("Informe outro número inteiro: ");
+
+            int resultado = 0;
+
+            for (int i = 0; i < num2; i++)
+            {
+                resultado = +num1;
+            }
+            Console.WriteLine($"O resultado da multiplicação é: {resultado}");
+            Validacao.AguardarTecla();
+        }
+
+        //22 Criar um algoritmo que leia dois números inteiros (positivos e maiores que zero) e apresente na tela o resultado inteiro da divisão do primeiro pelo segundo número. 
+        //Não utilize qualquer operador de divisão nem qualquer função para obter o resultado inteiro da divisão. Use para a solução deste problema estrutura de repetição (laço).
+        public static void Ex22()
+        {
+            int num1 = Validacao.ValidarNumero("Informe o primeiro número: ");
+            int num2 = Validacao.ValidarNumero("Informe o segundo número: ");
+
+            int resultado = 0;
+
+            // Enquanto num1 for maior ou igual a num2, subtrai num2 de num1 e incrementa o resultado
+            while (num1 >= num2)
+            {
+                num1 -= num2;
+                resultado++;
+            }
+
+            Console.WriteLine($"Resultado da divisão inteira: {resultado}");
+            Validacao.AguardarTecla();
+        }
+
+        // 23 Criar um algoritmo que leia uma base e um expoente e apresente na tela o valor da potência da base pelo expoente. Considere apenas a entrada de valores inteiros e positivos (maiores que zero). 
+        //Não utilize qualquer função para calcular a potência. Use para a solução deste problema estrutura de repetição (laço).
+        public static void Ex23()
+        {
+            int baseNum = Validacao.ValidarNumero("Informe a base (número inteiro e positivo): ");
+            int expoente = Validacao.ValidarNumero("Informe o expoente (número inteiro e positivo): ");
+
+            if (baseNum <= 0 || expoente <= 0)
+            {
+                Console.WriteLine("Números inválidos. Certifique-se de que ambos são inteiros e positivos.");
+                return;
+            }
+
+            int resultado = 1;
+
+            for (int i = 1; i <= expoente; i++)
+            {
+                resultado *= baseNum;
+            }
+
+            Console.WriteLine($"O resultado da potência de {baseNum} elevado a {expoente} é: {resultado}");
+            Validacao.AguardarTecla();
+        }
+
+        //24 Criar um algoritmo que apresente na tela a série de Fibonacci até o décimo quinto termo. A série de Fibonacci é formada pela seqüência: 1, 1, 2, 3, 5, 8, 13, 21, 34, ... etc., 
+        //caracterizando-se pela soma de um termo posterior com o seu anterior subseqüente.
+        public static void Ex24()
+        {
+            int termoAnterior = 0;
+            int termoAtual = 1;
+
+            Console.WriteLine(termoAnterior); 
+
+            for (int i = 1; i <= 14; i++) // segundo termo e imprimimos até o décimo quinto termo
+            {
+                Console.WriteLine(termoAtual);
+
+                int proximoTermo = termoAnterior + termoAtual;
+                termoAnterior = termoAtual;
+                termoAtual = proximoTermo;
+            }
+        }
+
     }
 }

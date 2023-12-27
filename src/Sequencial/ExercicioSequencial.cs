@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -264,5 +265,60 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"A soma dos quadrados de {num1} e {num2} é: {somaQuadrado}");
         }
 
+        //21 Criar um algoritmo que apresenta o valor da conversão em real (R$) de um valor lido em dólar (US$). 
+        //O algoritmo deve solicitar o valor da cotação do dólar e também a quantidade de dólares disponível com o usuário.
+        public static void Ex21()
+        {
+            double cotacaoDolar = Validacao.ValidarNumeroDouble("Informe a cotação do dólar: ");
+            double quantidadeDolar = Validacao.ValidarNumeroDouble("Informe a quantidade de dólares: ");
+
+            double conversaoReais = cotacaoDolar * quantidadeDolar;
+            Console.WriteLine($"{conversaoReais:F2}");
+        }
+
+        //22 Criar um algoritmo que leia três valores inteiros e apresente na tela o valor da soma dos quadrados dos três valores lidos.
+        public static void Ex22()
+        {
+            double num1 = Validacao.ValidarNumero("Informe o primeiro número inteiro: ");
+            double num2 = Validacao.ValidarNumero("Informe o segundo número inteiro: ");
+            double num3 = Validacao.ValidarNumero("Informe o terceiro número inteiro: ");
+
+            double quadradoNum1 = Math.Pow(num1, 2);
+            double quadradoNum2 = Math.Pow(num2, 2);
+            double quadradoNum3 = Math.Pow(num3, 2);
+
+            double somaQuadrado = quadradoNum1 + quadradoNum2 + quadradoNum3;
+
+            Console.WriteLine($"A soma dos quadrados de {num1}, {num2} e {num3} é: {somaQuadrado}");
+            Validacao.AguardarTecla();
+        }
+
+        //23 Criar um algoritmo que leia três valores inteiros e apresente na tela o valor do quadrado da soma dos três números lidos.
+        public static void Ex23()
+        {
+            int num1 = Validacao.ValidarNumero("Informe o primeiro número inteiro: ");
+            int num2 = Validacao.ValidarNumero("Informe o segundo número inteiro: ");
+            int num3 = Validacao.ValidarNumero("Informe o terceiro número inteiro: ");
+
+            int soma = num1 + num2 + num3;
+            int quadradoSoma = soma * soma;
+
+            Console.WriteLine($"O quadrado da soma de {num1}, {num2} e {num3} é: {quadradoSoma}");
+            Validacao.AguardarTecla();
+        }
+    
+        //24 Criar um algoritmo que leia os dias letivos de uma instituição qualquer, calcule e apresenta na tela a quantidade máxima de faltas que um aluno pode possuir. 
+        //Um aluno pode faltar até 25% dos dias letivos.
+        public static void Ex24()
+        {
+            int diasLetivos = Validacao.ValidarNumero("Informe os dias letivos de sua escola: ");
+
+            int faltas = diasLetivos * 25 / 100;
+           Console.WriteLine($"Você pode ter no maximo {faltas} faltas durante o ano letivo.");
+           Validacao.AguardarTecla();
+        }
+
+        //25 Criar um algoritmo que leia o valor correspondente ao salário mensal de um trabalhador e também o valor do percentual de reajuste a ser atribuído ao salário. Apresente na tela o valor do novo salário.
+    
     }
 }

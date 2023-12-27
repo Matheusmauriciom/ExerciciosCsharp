@@ -254,19 +254,19 @@ namespace ExericioCsharp.src.Decisao
         // 17 As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia. E R$ 1,00 se forem compradas pelo menos 12. 
         //Criar um algoritmo que leia o número de maçãs compradas, calcule e apresente na tela o custo total da compra.
         public static void Ex17()
-        {   
+        {
 
             int numeroMaca = Validacao.ValidarNumero("Informe o número de maças compradas: ");
 
-            if(numeroMaca < 12)
+            if (numeroMaca < 12)
             {
                 double total = numeroMaca * 1.30;
                 Console.WriteLine($"O valor total na compra de {numeroMaca} maças é de R${total:F2} reais.");
             }
             else
             {
-                    double total = numeroMaca * 1.00;
-                    Console.WriteLine($"O valor total na compra de {numeroMaca} maças é de R${total:F2} reais.");
+                double total = numeroMaca * 1.00;
+                Console.WriteLine($"O valor total na compra de {numeroMaca} maças é de R${total:F2} reais.");
             }
             Validacao.AguardarTecla();
 
@@ -278,28 +278,134 @@ namespace ExericioCsharp.src.Decisao
             int num1 = Validacao.ValidarNumero("Inform um número inteiro: ");
             int num2 = Validacao.ValidarNumero("Inform outro número inteiro: ");
 
-            if(num1 > num2) {
+            if (num1 > num2)
+            {
                 Console.WriteLine($"{num2} {num1}");
             }
             else if (num2 > num1)
             {
                 Console.WriteLine($"{num1} {num2}");
             }
-            else if(num1 == num2){
+            else if (num1 == num2)
+            {
                 Console.WriteLine("Operação inválida, os dois números são iguais.");
             }
             Validacao.AguardarTecla();
 
         }
-    
+
         //19 Criar um algoritmo que leia a idade de uma pessoa e apresente na tela uma mensagem de maioridade ou não.
         public static void Ex19()
         {
             int idade = Validacao.ValidarNumero("Informe sua idade: ");
-            Console.WriteLine( idade < 18 ? "Menor de idade" : "Maior de idade");
+            Console.WriteLine(idade < 18 ? "Menor de idade" : "Maior de idade");
             Validacao.AguardarTecla();
 
         }
+
+        //20 Criar um algoritmo que leia o salário de um funcionário, calcule e apresente o salário reajustado, de acordo com a seguinte regra: 
+        // salários até R$ 300, reajuste de 15%; 
+        // salários maiores que R$ 300, reajuste de 7,5%.
+        public static void Ex20()
+        {
+
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
+            if (salario <= 300)
+            {
+                double reajusteMenor = salario * 15 / 100;
+                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMenor} reais. Totalizando em R${salario + reajusteMenor} reais.");
+            }
+            else
+            {
+                double reajusteMaior = salario * 7.5 / 100;
+                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMaior} reais. Totalizando em R${salario + reajusteMaior} reais.");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        //21 Criar um algoritmo que leia o ano atual e o ano de nascimento de uma pessoa. 
+        //Apresentar na tela uma mensagem que diga se ela poderá ou não votar este ano (não é necessário considerar o mês em que a pessoa nasceu).
+        public static void Ex21()
+        {
+            int anoAtual = Validacao.ValidarNumero("Informe o ano atual: ");
+            int anoNascimento = Validacao.ValidarNumero("Informe o ano em que nasceu: ");
+
+            int idade = anoAtual - anoNascimento;
+            Console.WriteLine(idade < 18 ? "Não pode votar esse ano." : $"Você poderá votar, pois é menor de idade.");
+        }
+
+        //22 Uma livraria esta fazendo uma promoção para pagamento à vista em que o comprador pode escolher entre dois critérios de desconto: 
+        // Critério A: R$ 0,25 por livro + R$ 7,50 fixo;
+        // Critério B: R$ 0,50 por livro + R$ 2,50 fixo.
+        // Criar um algoritmo em que o usuário informe a quantidade de livros que deseja comprar e o programa diz qual é a melhor opção de desconto.
+        public static void Ex22()
+        {
+            int qtdadeLivros = Validacao.ValidarNumero("Informe a quantidade de livros que deseja comprar: ");
+
+            double criterioA = qtdadeLivros * 0.25 + 7.50;
+            double criterioB = qtdadeLivros * 0.50 + 2.50;
+
+            if (criterioA < criterioB)
+            {
+                Console.WriteLine($"Melhor opção: Criterio A - R${criterioA:F2}");
+            }
+            else
+            {
+                Console.WriteLine($"Melhor opção: Criterio B - R${criterioB:F2}");
+            }
+        }
+
+        //23 Criar um algoritmo que leia a altura e o sexo de uma pessoa (M ou F) e apresente o seu peso ideal, utilizando a seguinte fórmula:
+        // para homens: (72.7 * altura) - 58
+        // para mulheres: (62.1 * altura) - 44.7
+        public static void Ex23()
+        {
+            string sexo = Validacao.ValidarString("Informe seu sexo(M/F): ").ToUpper();
+
+            double altura = Validacao.ValidarNumeroDouble("Informe sua aproximadamente sua altura: ");
+
+            if (sexo == "M" || sexo == "MASCULINO")
+            {
+                double peso = (72.7 * altura) - 58;
+                Console.WriteLine($"Seu peso ideal é de {peso}KG");
+            }
+            else if (sexo == "F" || sexo == "FEMININO")
+            {
+                double peso = (62.1 * altura) - 44.7;
+                Console.WriteLine($"Seu peso ideal é de {peso}KG");
+            }
+            else
+            {
+                Console.WriteLine("Sexo inválido. Por favor, informe 'M' para masculino ou 'F' para feminino.");
+            }
+            Validacao.AguardarTecla();
+
+        }
+
+        // 24 Criar um algoritmo que leia a hora de início e a hora de fim de um jogo de Xadrez (considere apenas horas inteiras, sem os minutos), 
+        //calcule e apresente na tela a duração do jogo em horas, sabendo-se que o tempo máximo de duração do jogo é de 24 horas e que o jogo pode iniciar em um dia e terminar no dia seguinte.
+        public static void Ex24()
+        {
+            int horaInicio = Validacao.ValidarNumero("Informe a hora do início da partida: ");
+            int horaFinal = Validacao.ValidarNumero("Informe a hora do final da partida: ");
+
+            int duracao;
+
+            if (horaInicio > horaFinal)
+            {
+                duracao = (24 - horaInicio) + horaFinal;
+            }
+            else
+            {
+                duracao = horaFinal - horaInicio;
+            }
+
+            Console.WriteLine($"A duração do jogo é de {duracao} horas.");
+            Validacao.AguardarTecla();
+        }
+    
+    
+    
     
     }
 
