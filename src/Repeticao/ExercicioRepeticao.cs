@@ -424,7 +424,7 @@ namespace ExericioCsharp.src.Repeticao
             int termoAnterior = 0;
             int termoAtual = 1;
 
-            Console.WriteLine(termoAnterior); 
+            Console.WriteLine(termoAnterior);
 
             for (int i = 1; i <= 14; i++) // segundo termo e imprimimos até o décimo quinto termo
             {
@@ -436,5 +436,80 @@ namespace ExericioCsharp.src.Repeticao
             }
         }
 
+        //25 Criar um algoritmo que apresente todos os números inteiros divisíveis por 4 existentes na faixa de 1 a 200.
+        public static void Ex25()
+        {
+            for (int i = 1; i <= 200; i++)
+            {
+                if (i % 4 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        //26 Criar um algoritmo que apresente todos os números inteiros ímpares, existentes na faixa de 0 a 25.
+        public static void Ex26()
+        {
+            Console.WriteLine("Números ímpares de 0 a 25:");
+            for (int i = 0; i <= 25; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Validacao.AguardarTecla();
+        }
+
+        //27 Criar um algoritmo que apresente a média dos números inteiros divisíveis por 5 existentes na faixa de 0 a 136.
+        public static void Ex27()
+        {
+            int soma = 0;
+            int count = 0;
+
+            for (int i = 0; i <= 136; i++)
+            {
+                if (i % 5 == 0)
+                {
+                    soma += i;
+                    count++;
+                    Console.WriteLine(i);
+                }
+            }
+
+            if (count > 0)
+            {
+                double media = (double)soma / count;
+                Console.WriteLine("Média: " + media);
+            }
+            Validacao.AguardarTecla();
+        }
+
+        //28 Criar um algoritmo que apresente a média dos números inteiros divisíveis por 7 existentes na faixa de 0 a 128.
+        public static void Ex28()
+        {
+            int soma = 0;
+            int count = 0;
+
+            for (int i = 0; i <= 128; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    soma += i;
+                    count++;
+                    Console.WriteLine(i);
+                }
+            }
+
+            if (count > 0)
+            {
+                double media = (double)soma / count;
+                Console.WriteLine("Média: " + media);
+            }
+            Validacao.AguardarTecla();
+        }
+    
+    
     }
 }

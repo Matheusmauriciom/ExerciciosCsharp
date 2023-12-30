@@ -313,12 +313,12 @@ namespace ExericioCsharp.src.Decisao
             if (salario <= 300)
             {
                 double reajusteMenor = salario * 15 / 100;
-                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMenor} reais. Totalizando em R${salario + reajusteMenor} reais.");
+                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMenor} reais. Totalizando em {salario + reajusteMenor:C} reais.");
             }
             else
             {
                 double reajusteMaior = salario * 7.5 / 100;
-                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMaior} reais. Totalizando em R${salario + reajusteMaior} reais.");
+                Console.WriteLine($"Seu salário foi reajustado em R${reajusteMaior} reais. Totalizando em {salario + reajusteMaior:C} reais.");
             }
             Validacao.AguardarTecla();
         }
@@ -404,9 +404,124 @@ namespace ExericioCsharp.src.Decisao
             Validacao.AguardarTecla();
         }
     
-    
-    
-    
-    }
+        // 25 Criar um algoritmo que efetue o cálculo do reajuste de salário de um funcionário. Considere que o funcionário deve receber um reajuste de 15% caso seu salário seja menor que R$ 500,00. 
+        //Se o salário for maior ou igual a R$ 500,00 mas menor ou igual a R$ 1.000,00, seu reajuste será de 10%; caso seja ainda maior que R$ 1.000,00, o reajuste deverá ser de 5%.
+        public static void Ex25()
+        {
+        
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
+            double novoSalario = 0;
 
+            if(salario < 500)
+            {
+                double reajuste15 = salario * 15 / 100;
+                novoSalario = salario + reajuste15;
+                Console.WriteLine($"Você recebeu o reajuste de 15%, seu novo salário é de {novoSalario:C}");
+            }
+            else if (salario >= 500 && salario <= 1000)
+            {
+                double reajuste10 = salario * 10 / 100;
+                novoSalario = salario + reajuste10;
+                Console.WriteLine($"Você recebeu o reajuste de 10%, seu novo salário é de {novoSalario:C}");
+            }
+            else
+            {
+               double reajuste05 = salario * 5 / 100;
+               novoSalario = salario + reajuste05;
+                Console.WriteLine($"Você recebeu o reajuste de 5%, seu novo salário é de {novoSalario:C}");
+            }
+            Validacao.AguardarTecla();
+        }
+    
+        // 26 Criar um algoritmo que leia o peso e a altura de uma pessoa, calcule o seu IMC (Índice de Massa Corporal), e apresente na tela uma mensagem informando se a pessoa está ou não no seu peso ideal, de acordo com a tabela abaixo. 
+        //A fórmula para calcular o IMC é:  peso  / altura 2    
+        /* 
+            IMC < 20                Abaixo do peso
+            20 <= IMC < 25          Peso ideal
+            IMC >= 25               Acima do pesoa  */
+        public static void Ex26()
+        {
+            double peso = Validacao.ValidarNumeroDouble("Informe o seu peso:" );
+            double altura = Validacao.ValidarNumeroDouble("Infome sua altura: ");
+
+            double imc = peso / (altura * altura);
+            if(imc < 20)
+            {
+                Console.WriteLine("Abaixo do peso.");
+            }
+            else if (imc >=20 && imc < 25)
+            {
+                Console.WriteLine("Peso ideal");
+            }
+            else{
+                Console.WriteLine("Acima do peso");
+            }
+           Console.WriteLine($"IMC: {imc:F2}");
+           Validacao.AguardarTecla();
+        }
+
+        // 27 Criar um algoritmo que leia o código de origem de um produto e apresente na tela a sua procedência. A procedência obedece a seguinte tabela:
+
+        /*  Código de Origem // Procedência 
+            5 ou 6               Nordeste                   
+            7, 8 ou 9            Sudeste   
+            10 até 20            Centro-Oeste
+            21 até 30            Nordeste */
+        public static void Ex27()
+        {
+            int codigo = Validacao.ValidarNumero("Informe um número o código do produto: ");
+            if(codigo >= 5 && codigo <= 6)
+            {
+                Console.WriteLine("Procedência: Nordeste.");
+            }
+            else if (codigo >= 7 && codigo <= 9)
+            {
+                Console.WriteLine("Procedência: Sudeste.");
+            }
+            else if (codigo >= 10 && codigo <= 20)
+            {
+                Console.WriteLine("Procedência: Centro-Oeste.");
+            }
+            else if (codigo >= 21 && codigo <= 30)
+            {
+                Console.WriteLine("Procedência: Nordeste.");
+            }
+            else{
+                Console.WriteLine("Código inválido.");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 28 Criar um algoritmo que leia o salário de um funcionário e calcule o imposto de renda (IR) a ser pago a partir do salário do funcionário. 
+        //Se o salário for menor que R$ 1.257,12 está isento do imposto. 
+        //Se o salário for entre R$ 1.257,12 e R$ 2.510,00 (inclusive), a alíquota do imposto é 17%. 
+        //Se o salário for superior a R$ 2.510,00, a alíquota do imposto é 28%. 
+        //Apresentar na tela o salário bruto, o salário líquido e o valor do imposto.
+        public static void Ex28()
+        {
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
+            double imposto = 0;
+            if(salario < 1257.12)
+            {
+                Console.WriteLine("Isento do imposto");
+            }
+            else if (salario >= 1257.12 && salario <= 2510.00)
+            {   
+                imposto = salario * 17 / 100;
+                Console.WriteLine($"Salário Bruto: {salario:C}");
+               Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
+            }
+            else
+            {   
+                imposto = salario * 28 / 100;
+                Console.WriteLine($"Salário Bruto: {salario:C}");
+               Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
+            }
+             double salarioLiquido = salario - imposto;
+            Console.WriteLine($"Salário Líquido: {salarioLiquido:C}");
+            Validacao.AguardarTecla();
+        }
+   
+   
+   }
 }

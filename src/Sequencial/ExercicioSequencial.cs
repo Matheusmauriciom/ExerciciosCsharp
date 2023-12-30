@@ -306,7 +306,7 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"O quadrado da soma de {num1}, {num2} e {num3} é: {quadradoSoma}");
             Validacao.AguardarTecla();
         }
-    
+
         //24 Criar um algoritmo que leia os dias letivos de uma instituição qualquer, calcule e apresenta na tela a quantidade máxima de faltas que um aluno pode possuir. 
         //Um aluno pode faltar até 25% dos dias letivos.
         public static void Ex24()
@@ -314,11 +314,67 @@ namespace ExericioCsharp.src.Sequencial
             int diasLetivos = Validacao.ValidarNumero("Informe os dias letivos de sua escola: ");
 
             int faltas = diasLetivos * 25 / 100;
-           Console.WriteLine($"Você pode ter no maximo {faltas} faltas durante o ano letivo.");
-           Validacao.AguardarTecla();
+            Console.WriteLine($"Você pode ter no maximo {faltas} faltas durante o ano letivo.");
+            Validacao.AguardarTecla();
         }
 
         //25 Criar um algoritmo que leia o valor correspondente ao salário mensal de um trabalhador e também o valor do percentual de reajuste a ser atribuído ao salário. Apresente na tela o valor do novo salário.
+        public static void Ex25()
+        {
+            double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
+            double reajuste = Validacao.ValidarNumeroDouble("Informe em quantos % seu salário foi reajustado: ");
+
+            double salarioReajustado = salario * reajuste / 100;
+            double novoSalario = salario + salarioReajustado;
+
+            Console.WriteLine($"Você teve o reajuste de R$ {salarioReajustado} eu novo salário é R${novoSalario}");
+
+        }
+
+        //26 Criar um algoritmo que leia a metragem (altura e base) de um muro e o valor do metro quadrado cobrado pelo pedreiro, calcule e apresente na tela o custo da mão-de-obra para levantá-lo.
+        public static void Ex26()
+        {
+            double altura = Validacao.ValidarNumeroDouble("Informe a altura do muro: ");
+            double largura = Validacao.ValidarNumeroDouble("Informe a largura do muro: ");
+            double valorMetro = Validacao.ValidarNumeroDouble("Informe o valor cobrado por m²: ");
+
+            double metroQuadrado = altura * largura;
+            double maoDeObra = metroQuadrado * valorMetro;
+            Console.WriteLine($"O custo será de {maoDeObra:C}");
+            Validacao.AguardarTecla();
+        }
+
+        //27 Sabe-se que 1m² de carpete custa R$ 35,00. Criar um algoritmo que leia o comprimento e a largura de uma sala, em metros, calcule e apresente na tela o valor que será gasto para forrar todo o seu piso.
+        public static void Ex27()
+        {
+            double comprimento = Validacao.ValidarNumeroDouble("Informe o comprimento da sala em metros: ");
+            double largura = Validacao.ValidarNumeroDouble("Informe a largura da sala em metros: ");
+
+            // Calcula a área da sala em metros quadrados
+            double areaSala = comprimento * largura;
+
+            // Calcula o custo total para forrar o piso
+            double custoTotal = areaSala * 35.00;
+
+            Console.WriteLine($"O valor total para forrar o piso da sala é: {custoTotal:C}");
+            Validacao.AguardarTecla();
+        }
+    
+        //28 O custo ao consumidor, de um carro novo, é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). 
+        //Supondo que a porcentagem do distribuidor seja de 28% e os impostos de 45%, criar um algoritmo que leia o custo de fábrica de um carro e apresenta na tela o custo final ao consumidor.
+        public static void Ex28()
+        {
+            double custoFabrica = Validacao.ValidarNumeroDouble("Informe o valor do veículo de fábrica R$: ");
+
+            double distribuidor = custoFabrica * 28 / 100;
+            double imposto = custoFabrica * 45 / 100;
+
+            double custoFinal = custoFabrica + distribuidor + imposto;
+            Console.WriteLine($"O valor final do veículo é de {custoFinal:C}");
+            Validacao.AguardarTecla();
+        }
+    
+
     
     }
 }
