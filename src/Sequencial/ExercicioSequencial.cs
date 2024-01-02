@@ -359,7 +359,7 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"O valor total para forrar o piso da sala é: {custoTotal:C}");
             Validacao.AguardarTecla();
         }
-    
+
         //28 O custo ao consumidor, de um carro novo, é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). 
         //Supondo que a porcentagem do distribuidor seja de 28% e os impostos de 45%, criar um algoritmo que leia o custo de fábrica de um carro e apresenta na tela o custo final ao consumidor.
         public static void Ex28()
@@ -371,6 +371,82 @@ namespace ExericioCsharp.src.Sequencial
 
             double custoFinal = custoFabrica + distribuidor + imposto;
             Console.WriteLine($"O valor final do veículo é de {custoFinal:C}");
+            Validacao.AguardarTecla();
+        }
+
+        //29 Uma revendedora de carros usados paga a seus funcionários vendedores, um salário fixo por mês, mais uma comissão em reais também fixa para cada carro vendido e mais 5% do valor das vendas por ele efetuadas. 
+        //Criar um algoritmo que leia o número de carros por ele vendidos, o valor total de suas vendas, o salário fixo e o valor que recebe por carro vendido, calcule e apresente na tela o salário mensal do vendedor.
+        public static void Ex29()
+        {
+            int carrosVendidos = Validacao.ValidarNumero("Informe o número de carros vendidos: ");
+            double valorTotalVenda = Validacao.ValidarNumeroDouble("Informe o valor total de suas vendas: ");
+            double salarioFixo = Validacao.ValidarNumeroDouble("Informe seu salário fixo por mês: ");
+            double comissaoPorCarroVendido = Validacao.ValidarNumeroDouble("Informe o valor da sua comissão por carro vendido: ");
+
+            double comissao = carrosVendidos * comissaoPorCarroVendido;
+            double porcentagem = valorTotalVenda * 5 / 100;
+
+            double salarioTotal = comissao + porcentagem + salarioFixo;
+            Console.WriteLine($"Seu salário total é de: {salarioTotal:C}");
+            Validacao.AguardarTecla();
+        }
+
+        /* 30  Uma conta telefônica é composta dos seguintes custos: 
+        Assinatura ==> R$ 17,90; Minutos Chamada Local ==> R$ 0,04 por minuto; Minutos Chamada Celular ==> R$0,20 por minuto; Interurbanos.
+         Criar um algoritmo que calcule o valor total a ser pago sabendo será fornecida a quantidade de impulsos e de chamadas para celular. 
+        O valor gasto em interurbanos foi de R$ 34,29. Apresentar na tela os custos e o valor total a ser pago.*/
+        public static void Ex30()
+        {
+            double Assinatura = 17.90;
+            double CustoMinutoLocal = 0.04;
+            double CustoMinutoCelular = 0.20;
+            double CustoInterurbanos = 34.29;
+
+            double impulsos = Validacao.ValidarNumeroDouble("Informe a quantidade de impulsos: ");
+            double chamadasCelular = Validacao.ValidarNumeroDouble("Informe a quantidade de impulsos: ");
+
+            double custoAssinatura = Assinatura;
+            double custoChamadasLocais = impulsos * CustoMinutoLocal;
+            double custoChamadasCelular = chamadasCelular * CustoMinutoCelular;
+            double valorTotal = custoAssinatura + custoChamadasLocais + custoChamadasCelular + CustoInterurbanos;
+
+            Console.WriteLine($"Custo da assinatura: R$ {custoAssinatura:F2}");
+            Console.WriteLine($"Custo das chamadas locais: R$ {custoChamadasLocais:F2}");
+            Console.WriteLine($"Custo das chamadas para celular: R$ {custoChamadasCelular:F2}");
+            Console.WriteLine($"Custo dos interurbanos: R$ {CustoInterurbanos:F2}");
+            Console.WriteLine($"Valor total a ser pago: R$ {valorTotal:F2}");
+            Validacao.AguardarTecla();
+        }
+
+        /* 31 Criar um algoritmo que efetue o cálculo da quantidade de litros de combustível gastos em uma viagem, utilizando-se um automóvel que faz 12 Km por litro. 
+        Para realizar o cálculo, o algoritmo deve ler o tempo gasto na viagem e a velocidade média durante a mesma. 
+        Desta forma, será possível obter a distância percorrida com a fórmula: DISTANCIA = TEMPO * VELOCIDADE. 
+        Tendo o valor da distância, basta calcular a quantidade de litros de combustível utilizada na viagem com a fórmula: LITROS_USADOS = DISTANCIA / 12 . 
+        O algoritmo deve apresentar na tela os valores de velocidade média, tempo gasto na viagem, à distância percorrida e a quantidade de litros utilizados na viagem.
+         */
+         public static void Ex31()
+         {
+                int tempo = Validacao.ValidarNumero("Informe o tempo gasto na viagem (HORAS): ");
+                double velocidadeMedia = Validacao.ValidarNumeroDouble("Informe a velocidade média durante a viagem: ");
+
+                double distancia = tempo * velocidadeMedia;
+                double litrosUsados = distancia / 12;
+
+                Console.WriteLine($"A velocidade média foi de: {velocidadeMedia} KM/H");
+                Console.WriteLine($"O tempo gasto na viagem foi de: {tempo} horas.");
+                Console.WriteLine($"O distância percorridade foi de: {distancia} KM.");
+                Console.WriteLine($"A quantidade de litros usados foi de: {litrosUsados} litros.");
+                Validacao.AguardarTecla();
+
+         }
+
+        // 32 Criar um algoritmo que leia um valor L e calcula a área de um quadrado de lado L.
+        public static void Ex32()
+        {
+            double valorL = Validacao.ValidarNumeroDouble("Informe um valor L: ");
+            double areaQuadrado = valorL * valorL;
+
+            Console.WriteLine($"A área do quadrado L é de: {areaQuadrado}");
             Validacao.AguardarTecla();
         }
     

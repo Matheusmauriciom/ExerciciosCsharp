@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -403,16 +405,16 @@ namespace ExericioCsharp.src.Decisao
             Console.WriteLine($"A duração do jogo é de {duracao} horas.");
             Validacao.AguardarTecla();
         }
-    
+
         // 25 Criar um algoritmo que efetue o cálculo do reajuste de salário de um funcionário. Considere que o funcionário deve receber um reajuste de 15% caso seu salário seja menor que R$ 500,00. 
         //Se o salário for maior ou igual a R$ 500,00 mas menor ou igual a R$ 1.000,00, seu reajuste será de 10%; caso seja ainda maior que R$ 1.000,00, o reajuste deverá ser de 5%.
         public static void Ex25()
         {
-        
+
             double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
             double novoSalario = 0;
 
-            if(salario < 500)
+            if (salario < 500)
             {
                 double reajuste15 = salario * 15 / 100;
                 novoSalario = salario + reajuste15;
@@ -426,13 +428,13 @@ namespace ExericioCsharp.src.Decisao
             }
             else
             {
-               double reajuste05 = salario * 5 / 100;
-               novoSalario = salario + reajuste05;
+                double reajuste05 = salario * 5 / 100;
+                novoSalario = salario + reajuste05;
                 Console.WriteLine($"Você recebeu o reajuste de 5%, seu novo salário é de {novoSalario:C}");
             }
             Validacao.AguardarTecla();
         }
-    
+
         // 26 Criar um algoritmo que leia o peso e a altura de uma pessoa, calcule o seu IMC (Índice de Massa Corporal), e apresente na tela uma mensagem informando se a pessoa está ou não no seu peso ideal, de acordo com a tabela abaixo. 
         //A fórmula para calcular o IMC é:  peso  / altura 2    
         /* 
@@ -441,23 +443,24 @@ namespace ExericioCsharp.src.Decisao
             IMC >= 25               Acima do pesoa  */
         public static void Ex26()
         {
-            double peso = Validacao.ValidarNumeroDouble("Informe o seu peso:" );
+            double peso = Validacao.ValidarNumeroDouble("Informe o seu peso:");
             double altura = Validacao.ValidarNumeroDouble("Infome sua altura: ");
 
             double imc = peso / (altura * altura);
-            if(imc < 20)
+            if (imc < 20)
             {
                 Console.WriteLine("Abaixo do peso.");
             }
-            else if (imc >=20 && imc < 25)
+            else if (imc >= 20 && imc < 25)
             {
                 Console.WriteLine("Peso ideal");
             }
-            else{
+            else
+            {
                 Console.WriteLine("Acima do peso");
             }
-           Console.WriteLine($"IMC: {imc:F2}");
-           Validacao.AguardarTecla();
+            Console.WriteLine($"IMC: {imc:F2}");
+            Validacao.AguardarTecla();
         }
 
         // 27 Criar um algoritmo que leia o código de origem de um produto e apresente na tela a sua procedência. A procedência obedece a seguinte tabela:
@@ -470,7 +473,7 @@ namespace ExericioCsharp.src.Decisao
         public static void Ex27()
         {
             int codigo = Validacao.ValidarNumero("Informe um número o código do produto: ");
-            if(codigo >= 5 && codigo <= 6)
+            if (codigo >= 5 && codigo <= 6)
             {
                 Console.WriteLine("Procedência: Nordeste.");
             }
@@ -486,7 +489,8 @@ namespace ExericioCsharp.src.Decisao
             {
                 Console.WriteLine("Procedência: Nordeste.");
             }
-            else{
+            else
+            {
                 Console.WriteLine("Código inválido.");
             }
             Validacao.AguardarTecla();
@@ -501,27 +505,164 @@ namespace ExericioCsharp.src.Decisao
         {
             double salario = Validacao.ValidarNumeroDouble("Informe seu salário: ");
             double imposto = 0;
-            if(salario < 1257.12)
+            if (salario < 1257.12)
             {
                 Console.WriteLine("Isento do imposto");
             }
             else if (salario >= 1257.12 && salario <= 2510.00)
-            {   
+            {
                 imposto = salario * 17 / 100;
                 Console.WriteLine($"Salário Bruto: {salario:C}");
-               Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
+                Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
             }
             else
-            {   
+            {
                 imposto = salario * 28 / 100;
                 Console.WriteLine($"Salário Bruto: {salario:C}");
-               Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
+                Console.WriteLine($"Você terá que pagar {imposto:C} de imposto.");
             }
-             double salarioLiquido = salario - imposto;
+            double salarioLiquido = salario - imposto;
             Console.WriteLine($"Salário Líquido: {salarioLiquido:C}");
             Validacao.AguardarTecla();
         }
-   
-   
-   }
+
+        //29 [ARRAY] Criar um algoritmo que leia o valor de três notas escolares de um aluno. Calcular a média aritmética e apresentar na tela a mensagem Aprovado se a média obtida for maior ou igual a 7; 
+        //caso contrário, o algoritmo deve solicitar a nota de exame do aluno e calcular uma nova média aritmética entre a nota do exame e a primeira média aritmética. 
+        //Se o valor da nova média for maior ou igual a 5, apresentar na tela a mensagem Aprovado em exame'; 
+        //caso contrário, apresentar a mensagem Reprovado. Informar junto com cada mensagem o valor da média obtida.
+        public static void Ex29()
+        {
+            double[] notas = new double[3];
+
+            for (int i = 0; i < notas.Length; i++)
+            {
+                Console.Write($"Informe a {i + 1}ª nota: ");
+                notas[i] = double.Parse(Console.ReadLine());
+            }
+
+            double media = notas.Sum() / notas.Length;
+
+            if (media >= 7)
+            {
+                Console.WriteLine("Aprovado");
+                Console.WriteLine($"Média: {media}");
+            }
+            else
+
+            {
+                Console.WriteLine();
+                Console.WriteLine("Você ficou de recuperação.");
+                Console.Write("Informe a nota do exame(recuperação): ");
+                double exame = double.Parse(Console.ReadLine());
+                notas[0] = exame;
+
+                double novaMedia = notas.Sum() / notas.Length;
+                if (novaMedia <= 5)
+                {
+                    Console.WriteLine($"Reprovado em exame(recuperação). Sua média ficou em {novaMedia:F2}");
+                }
+                else
+                {
+                    Console.WriteLine($"Aprovado em exame(recuperação). Sua média ficou em {novaMedia:F2}");
+                }
+            }
+            Validacao.AguardarTecla();
+
+        }
+
+        //30 Criar um algoritmo que leia dois números inteiros e apresente na tela uma mensagem indicando se são iguais ou diferentes. 
+        //Se os números são diferentes, apresentar na tela o maior e o menor número (nesta sequência).
+        public static void Ex30()
+        {
+            int num1 = Validacao.ValidarNumero("Informe um número inteiro: ");
+            int num2 = Validacao.ValidarNumero("Informe outro número inteiro: ");
+
+            if (num1 != num2)
+            {
+                if (num1 > num2)
+                {
+                    Console.WriteLine($"{num1} é maior e {num2} é menor.");
+                }
+                else
+                {
+                    Console.WriteLine($"{num2} é maior e {num1} é menor");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{num1} e {num2} são iguais.");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 31 Criar um algoritmo que leia dois números inteiro positivos (A e B). 
+        //Caso A seja igual a B, apresentar na tela a soma dos dois números. Caso contrário, apresentar na tela a diferença do maior pelo menor número.
+        public static void Ex31()
+        {
+            int numA = Validacao.ValidarNumero("Informe um número inteiro positivo: ");
+            int numB = Validacao.ValidarNumero("Informe outro número inteiro positivo: ");
+
+            if (numA <= 0 || numB <= 0)
+            {
+                Console.WriteLine("Números inválidos");
+                return;
+            }
+            if (numA == numB)
+            {
+                int soma = numA + numB;
+                Console.WriteLine($"A soma de {numA} + {numB} = {soma}");
+            }
+            else if (numA > numB)
+            {
+
+                Console.WriteLine($"{numA} - {numB} = {numA - numB}");
+            }
+            else
+            {
+                Console.WriteLine($"{numB} - {numA} = {numB - numA}");
+            }
+            Validacao.AguardarTecla();
+
+        }
+
+        /*  32 Criar um algoritmo que represente uma calculadora de quatro operações. 
+            O algoritmo deve ler o valor de dois operandos e um operador (+, -, * ou /), efetuar o cálculo desejado e apresentar na tela o resultado.*/
+        public static void Ex32()
+        {
+            double valor1 = Validacao.ValidarNumeroDouble("Informe um número: ");
+            double valor2 = Validacao.ValidarNumeroDouble("Informe outro número: ");
+
+            Console.Write("Informe o operador para efetuar o cálculo (+, -, * ou /) : ");
+            string operador = Console.ReadLine();
+
+            if (operador == "+")
+            {
+                double soma = valor1 + valor2;
+                Console.WriteLine($"A soma de {valor1} + {valor2} = {soma}");
+            }
+            else if (operador == "-")
+            {
+                double subtracao = valor1 - valor2;
+                Console.WriteLine($"A subtração de {valor1} - {valor2} = {subtracao}");
+            }
+            else if (operador == "*")
+            {
+                double multiplicacao = valor1 * valor2;
+                Console.WriteLine($"A multiplicação de {valor1} * {valor2} = {multiplicacao}");
+            }
+            else if (operador == "/")
+            {
+                double divisao = valor1 / valor2;
+                Console.WriteLine($"A divisão de {valor1} / {valor2} = {divisao}");
+            }
+            else
+            {
+                Console.WriteLine("Operador inválido.");
+                return;
+            }
+            Validacao.AguardarTecla();
+        }
+
+
+    }
 }

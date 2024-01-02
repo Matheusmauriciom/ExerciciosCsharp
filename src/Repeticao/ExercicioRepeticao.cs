@@ -509,7 +509,101 @@ namespace ExericioCsharp.src.Repeticao
             }
             Validacao.AguardarTecla();
         }
+
+        //29 Criar um algoritmo que conte de 1 a 100 e a cada múltiplo de 10 apresenta a mensagem Múltiplo de 10.
+        public static void Ex29()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    Console.WriteLine($"{i} - Múltiplo de 10");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 30 Criar um algoritmo que apresente o resultado da soma e da média aritmética dos valores inteiros pares situados na faixa numérica de 50 a 70.
+        public static void Ex30()
+        {
+            // Inicializando variáveis para armazenar a soma dos números pares e a quantidade de números pares
+            int soma = 0;
+            int quantidadePares = 0;
+
+            for (int i = 51; i <= 69; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    // Se for par, adiciona o número à soma e incrementa a quantidade de números pares
+                    soma += i;
+                    quantidadePares++;
+                }
+            }
+
+            // Verifica se pelo menos um número par foi encontrado
+            if (quantidadePares > 0)
+            {
+                // Calcula a média dos números pares
+                int media = soma / quantidadePares;
+
+                Console.WriteLine($"Soma dos números pares: {soma}");
+                Console.WriteLine($"Média dos números pares: {media}");
+            }
+            else
+            {
+                Console.WriteLine("Não há números pares na faixa especificada.");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        // 31 Criar um algoritmo que leia 15 números inteiros e apresente a soma dos números divisíveis por 3.
+        public static void Ex31()
+        {   
+                int soma = 0;
+            for (int i = 1; i <= 15; i++)
+            {
+                Console.Write($"Informe o {i} número: ");
+                int num = int.Parse(Console.ReadLine());
+
+                if(num <= 0)
+                {
+                    Console.WriteLine("Informe um número válido");
+                    return;
+                }
+                if(num % 3 == 0)
+                {
+                   soma += num;
+                    
+                }
+                
+            }
+              Console.WriteLine($"A soma dos números divisíveis por 3 é: {soma}");
+              Validacao.AguardarTecla();
+        }
+   
+        //32 Criar um algoritmo que leia a idade de 10 pessoas e apresente a quantidade de pessoas maiores de idade (Uma pessoa é maior de idade se sua idade for maior ou igual a 18 anos).
+        public static void Ex32()
+        {
+            int maioresIdade = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                int idade = Validacao.ValidarNumero($"Informe sua idade, pessoa número {i}: ");
+
+                if(idade >= 18)
+                {
+                        maioresIdade++;
+                }
+               
+            }
+             Console.WriteLine($"A quantidade de pessoas maiores de idade é de {maioresIdade} pessoas");
+             Validacao.AguardarTecla();
+        }
     
     
     }
 }
+
