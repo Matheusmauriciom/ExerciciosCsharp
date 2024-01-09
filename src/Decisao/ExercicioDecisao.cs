@@ -625,8 +625,8 @@ namespace ExericioCsharp.src.Decisao
 
         }
 
-        /*  32 Criar um algoritmo que represente uma calculadora de quatro operações. 
-            O algoritmo deve ler o valor de dois operandos e um operador (+, -, * ou /), efetuar o cálculo desejado e apresentar na tela o resultado.*/
+        /* 32 Criar um algoritmo que represente uma calculadora de quatro operações. 
+        O algoritmo deve ler o valor de dois operandos e um operador (+, -, * ou /), efetuar o cálculo desejado e apresentar na tela o resultado.*/
         public static void Ex32()
         {
             double valor1 = Validacao.ValidarNumeroDouble("Informe um número: ");

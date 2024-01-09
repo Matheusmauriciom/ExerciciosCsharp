@@ -424,21 +424,21 @@ namespace ExericioCsharp.src.Sequencial
         Tendo o valor da distância, basta calcular a quantidade de litros de combustível utilizada na viagem com a fórmula: LITROS_USADOS = DISTANCIA / 12 . 
         O algoritmo deve apresentar na tela os valores de velocidade média, tempo gasto na viagem, à distância percorrida e a quantidade de litros utilizados na viagem.
          */
-         public static void Ex31()
-         {
-                int tempo = Validacao.ValidarNumero("Informe o tempo gasto na viagem (HORAS): ");
-                double velocidadeMedia = Validacao.ValidarNumeroDouble("Informe a velocidade média durante a viagem: ");
+        public static void Ex31()
+        {
+            int tempo = Validacao.ValidarNumero("Informe o tempo gasto na viagem (HORAS): ");
+            double velocidadeMedia = Validacao.ValidarNumeroDouble("Informe a velocidade média durante a viagem: ");
 
-                double distancia = tempo * velocidadeMedia;
-                double litrosUsados = distancia / 12;
+            double distancia = tempo * velocidadeMedia;
+            double litrosUsados = distancia / 12;
 
-                Console.WriteLine($"A velocidade média foi de: {velocidadeMedia} KM/H");
-                Console.WriteLine($"O tempo gasto na viagem foi de: {tempo} horas.");
-                Console.WriteLine($"O distância percorridade foi de: {distancia} KM.");
-                Console.WriteLine($"A quantidade de litros usados foi de: {litrosUsados} litros.");
-                Validacao.AguardarTecla();
+            Console.WriteLine($"A velocidade média foi de: {velocidadeMedia} KM/H");
+            Console.WriteLine($"O tempo gasto na viagem foi de: {tempo} horas.");
+            Console.WriteLine($"O distância percorridade foi de: {distancia} KM.");
+            Console.WriteLine($"A quantidade de litros usados foi de: {litrosUsados} litros.");
+            Validacao.AguardarTecla();
 
-         }
+        }
 
         // 32 Criar um algoritmo que leia um valor L e calcula a área de um quadrado de lado L.
         public static void Ex32()
@@ -449,8 +449,24 @@ namespace ExericioCsharp.src.Sequencial
             Console.WriteLine($"A área do quadrado L é de: {areaQuadrado}");
             Validacao.AguardarTecla();
         }
-    
 
-    
+        /* 33 Criar um algoritmo que leia três números decimais: A, B e C. Em seguida, calcule e mostre: 
+        a área do triângulo retângulo que tem A por base e C por altura.
+        a área do círculo de raio C. (π = 3.14159).
+        a área do trapézio que tem A e B por bases e C por altura.
+        a área do quadrado que tem lado B.
+        a área do retângulo que tem lados A e B.
+        o perímetro do retângulo que tem lados A e B */
+        public static void Ex33()
+        {
+            double numA = Validacao.ValidarNumeroDouble("Por favor, digite o primeiro número decimal: ");
+            double numB = Validacao.ValidarNumeroDouble("Agora, informe o segundo número decimal: ");
+            double numC = Validacao.ValidarNumeroDouble("Digite o terceiro número decimal: ");
+
+            double areaTriangulo = numA * numC;
+            Console.WriteLine($"á área do triângulo retângulo com base{numA} e altura{numB} é de {areaTriangulo}");
+
+        }
+
     }
 }
