@@ -663,6 +663,79 @@ namespace ExericioCsharp.src.Decisao
             Validacao.AguardarTecla();
         }
 
+        /* 33 Criar um algoritmo que leia 3 notas de um aluno, calcule a sua média e apresente na tela a sua menção, de acordo com as regras abaixo:
+                 MEDIA                                      MENÇÃO
+            média >= 9                                      Menção E (Exelecente)
+            7 <= média <9                                   Menção B (Bom)
+            5 <= média < 7                                  Menção S (Suficiente)
+            média < 5                                       Menção I (insuficiente)
 
+        */
+        public static void Ex33()
+        {
+            double nota1 = Validacao.ValidarNumeroDouble("Informe a primeira nota: ");
+            double nota2 = Validacao.ValidarNumeroDouble("Informe a segunda nota: ");
+            double nota3 = Validacao.ValidarNumeroDouble("Informe a terceira nota: ");
+
+            double media = (nota1 + nota2 + nota3) / 3;
+            
+            if(media >= 9)
+            {
+                Console.WriteLine($"Sua média foi de {media:F2} e sua menção E (Exelecente)");
+            }
+            else if(media >= 7 && media <9 )
+            {
+                Console.WriteLine($"Sua média foi de {media:F2} e sua menção B (Bom)");
+            }
+            else if(media >= 5 && media <7)
+            {
+                Console.WriteLine($"Sua média foi de {media:F2} e sua menção S (Suficiente)");
+            }
+            else{
+                Console.WriteLine($"Sua média foi de {media:F2} e sua menção I (insuficiente)");
+            }
+            Validacao.AguardarTecla();
+
+        }
+    
+        /* 34 Criar um algoritmo que leia a idade de um nadador e apresenta na tela a sua categoria seguindo as regras:
+
+                CATEGORIA                    IDADE
+                Infantil A                  5 - 7 anos
+                Infantil B                  8 - 10 anos
+                Juvenil A                   11 - 13 anos
+                Juvenil B                   14 - 17 anos
+                Sênior                      maiores de 18 anos
+        */
+        public static void Ex34()
+        {
+            int idade = Validacao.ValidarNumero("Informe sua idade: ");
+            
+            if(idade < 5)
+            {
+                Console.WriteLine("Sem categoria");
+            }
+            else if (idade >= 5 && idade <=7)
+            {
+                Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Infantil A");
+            }
+            else if (idade >= 8 && idade <=10)
+            {
+                Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Infantil B");
+            }
+            else if (idade >= 11 && idade <=13)
+            {
+                Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Juvenil A");
+            }
+            else if (idade >= 14 && idade <=17)
+            {
+                Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Juvenil B");
+            }
+            else{
+                Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Sênior");
+            }
+            Validacao.AguardarTecla();
+            
+        }
     }
 }

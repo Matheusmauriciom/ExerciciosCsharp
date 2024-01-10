@@ -562,29 +562,29 @@ namespace ExericioCsharp.src.Repeticao
 
         // 31 Criar um algoritmo que leia 15 números inteiros e apresente a soma dos números divisíveis por 3.
         public static void Ex31()
-        {   
-                int soma = 0;
+        {
+            int soma = 0;
             for (int i = 1; i <= 15; i++)
             {
                 Console.Write($"Informe o {i} número: ");
                 int num = int.Parse(Console.ReadLine());
 
-                if(num <= 0)
+                if (num <= 0)
                 {
                     Console.WriteLine("Informe um número válido");
                     return;
                 }
-                if(num % 3 == 0)
+                if (num % 3 == 0)
                 {
-                   soma += num;
-                    
+                    soma += num;
+
                 }
-                
+
             }
-              Console.WriteLine($"A soma dos números divisíveis por 3 é: {soma}");
-              Validacao.AguardarTecla();
+            Console.WriteLine($"A soma dos números divisíveis por 3 é: {soma}");
+            Validacao.AguardarTecla();
         }
-   
+
         //32 Criar um algoritmo que leia a idade de 10 pessoas e apresente a quantidade de pessoas maiores de idade (Uma pessoa é maior de idade se sua idade for maior ou igual a 18 anos).
         public static void Ex32()
         {
@@ -593,17 +593,60 @@ namespace ExericioCsharp.src.Repeticao
             {
                 int idade = Validacao.ValidarNumero($"Informe sua idade, pessoa número {i}: ");
 
-                if(idade >= 18)
+                if (idade >= 18)
                 {
-                        maioresIdade++;
+                    maioresIdade++;
                 }
-               
+
             }
-             Console.WriteLine($"A quantidade de pessoas maiores de idade é de {maioresIdade} pessoas");
-             Validacao.AguardarTecla();
+            Console.WriteLine($"A quantidade de pessoas maiores de idade é de {maioresIdade} pessoas");
+            Validacao.AguardarTecla();
+        }
+
+        //33 Criar um algoritmo que leia 15 valores inteiros positivos e apresente a soma dos valores menores que 40.
+        public static void Ex33()
+        {
+                int soma = 0;
+
+            for (int i = 1; i <= 15; i++)
+            {
+                Console.Write($"Informe o {i} número inteiro e positivo: ");
+                int num = int.Parse(Console.ReadLine());
+
+                if (num <= 0)
+                {
+                    Console.WriteLine("Número inválido");
+                    i--;
+                }
+
+                if(num <= 40)
+                {
+                    soma += num;
+                }
+            }
+            Console.WriteLine($"A soma dos valores menores que 40 é de {soma}");
+            Validacao.AguardarTecla();
+        }
+        
+        //34 Criar um algoritmo que leia 10 valores inteiros e apresente a quantidade de números negativos.
+        public static void Ex34()
+        {   
+            int negativo = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.Write($"Informe o {i}º número: ");
+                int num = int.Parse(Console.ReadLine());
+
+                if(num < 0)
+                {
+                   negativo = negativo + 1;
+                }
+                
+            }
+            Console.WriteLine($"A quantidade de números negativos são de {negativo} números negativos ");
         }
     
-    
+
     }
 }
 

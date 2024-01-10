@@ -451,11 +451,13 @@ namespace ExericioCsharp.src.Sequencial
         }
 
         /* 33 Criar um algoritmo que leia três números decimais: A, B e C. Em seguida, calcule e mostre: 
-        a área do triângulo retângulo que tem A por base e C por altura.
-        a área do círculo de raio C. (π = 3.14159).
-        a área do trapézio que tem A e B por bases e C por altura.
-        a área do quadrado que tem lado B.
-        a área do retângulo que tem lados A e B.
+
+        a área do triângulo retângulo que tem A por base e C por altura.    // Fórmula: área do triângulo retângulo = base * altura
+        a área do círculo de raio C. (π = 3.14159).                         // Fórmula: área do círculo = π * raio^2  // ^ potenciação 2⁴ = 2x2x2x2 = 16
+        a área do trapézio que tem A e B por bases e C por altura.          // Fórmula: área do trapézio = (base1 + base2) * altura / 2
+        a área do quadrado que tem lado B.                                  // Fórmula: área do quadrado = lado^2 .  // ^ potenciação 2⁴ = 2x2x2x2 = 16
+        a área do retângulo que tem lados A e B.                            // Fórmula: área do retângulo = base * altura
+
         o perímetro do retângulo que tem lados A e B */
         public static void Ex33()
         {
@@ -463,10 +465,50 @@ namespace ExericioCsharp.src.Sequencial
             double numB = Validacao.ValidarNumeroDouble("Agora, informe o segundo número decimal: ");
             double numC = Validacao.ValidarNumeroDouble("Digite o terceiro número decimal: ");
 
+            // Fórmula: área do triângulo retângulo = base * altura
             double areaTriangulo = numA * numC;
-            Console.WriteLine($"á área do triângulo retângulo com base{numA} e altura{numB} é de {areaTriangulo}");
+            Console.WriteLine($"A área do triângulo retângulo com base {numA} e altura{numB} é de {areaTriangulo:F2} cm²");
+
+            // Fórmula: área do círculo = π * raio^2  // ^ potenciação 2⁴ = 2x2x2x2 = 16
+            double areaCirculo = Math.PI * Math.Pow(numC, 2);
+            Console.WriteLine($"A área círculo de raio {numC} é de {areaCirculo:F2} cm²");
+
+             // Fórmula: área do trapézio = (base1 + base2) * altura / 2
+            double areaTrapezio = (numA + numB) * numC / 2;
+            Console.WriteLine($"A área do trapézio que tem {numA} e {numB} por bases e {numC} por altura é de {areaTrapezio:F2} cm²");
+
+            // Fórmula: área do quadrado = lado^2 .  // ^ potenciação 2⁴ = 2x2x2x2 = 16
+            double areaQuadrado = Math.Pow(numB, 2);
+            Console.WriteLine($"A área do quadrado que tem lado {numB} é de {areaQuadrado:F2} cm²");
+
+            // Fórmula: área do retângulo = base * altura
+            double areaRetangulo = numA * numB;
+            Console.WriteLine($"A área do retângulo que tem lados {numA} e {numB} é de {areaRetangulo:F2} cm²");
+
+           // Fórmula: perímetro do retângulo = 2 * base + 2 * altura
+            double perimetroRetangulo = (2 * numA) + 2 * numB;
+            Console.WriteLine(perimetroRetangulo);
 
         }
+
+        /*  34 Criar um algoritmo que leia os dois lados ​A e ​B de um triângulo retângulo e calcula a hipotenusa do triângulo. 
+            Para determinar a medida da hipotenusa, devemos conhecer as medidas de seus catetos. Temos que os catetos medem 3 cm e 4 cm.
+            1º. Elevamos os catetos ao quadrado. >>>Math.Pow
+            2º. Somamos os resultados. 
+            3º. Extraímos a raiz quadrada. >>>Math.Sqrt */
+
+        public static void Ex34()
+        {
+            double ladoA = Validacao.ValidarNumeroDouble("Informe o lado A de um triângulo retângulo: ");
+            double ladoB = Validacao.ValidarNumeroDouble("Informe o lado B de um triângulo retângulo: ");
+
+            double catetoResultado = Math.Pow(ladoA, 2) + Math.Pow(ladoB,2); 
+
+            double hipotenusa = Math.Sqrt(catetoResultado);
+            Console.WriteLine($"A medida da hipotenusa é de {hipotenusa}");
+            Validacao.AguardarTecla();
+        }
+
 
     }
 }
