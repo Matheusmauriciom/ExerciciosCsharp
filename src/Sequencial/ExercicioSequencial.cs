@@ -473,7 +473,7 @@ namespace ExericioCsharp.src.Sequencial
             double areaCirculo = Math.PI * Math.Pow(numC, 2);
             Console.WriteLine($"A área círculo de raio {numC} é de {areaCirculo:F2} cm²");
 
-             // Fórmula: área do trapézio = (base1 + base2) * altura / 2
+            // Fórmula: área do trapézio = (base1 + base2) * altura / 2
             double areaTrapezio = (numA + numB) * numC / 2;
             Console.WriteLine($"A área do trapézio que tem {numA} e {numB} por bases e {numC} por altura é de {areaTrapezio:F2} cm²");
 
@@ -485,7 +485,7 @@ namespace ExericioCsharp.src.Sequencial
             double areaRetangulo = numA * numB;
             Console.WriteLine($"A área do retângulo que tem lados {numA} e {numB} é de {areaRetangulo:F2} cm²");
 
-           // Fórmula: perímetro do retângulo = 2 * base + 2 * altura
+            // Fórmula: perímetro do retângulo = 2 * base + 2 * altura
             double perimetroRetangulo = (2 * numA) + 2 * numB;
             Console.WriteLine(perimetroRetangulo);
 
@@ -502,13 +502,27 @@ namespace ExericioCsharp.src.Sequencial
             double ladoA = Validacao.ValidarNumeroDouble("Informe o lado A de um triângulo retângulo: ");
             double ladoB = Validacao.ValidarNumeroDouble("Informe o lado B de um triângulo retângulo: ");
 
-            double catetoResultado = Math.Pow(ladoA, 2) + Math.Pow(ladoB,2); 
+            double catetoResultado = Math.Pow(ladoA, 2) + Math.Pow(ladoB, 2);
 
             double hipotenusa = Math.Sqrt(catetoResultado);
             Console.WriteLine($"A medida da hipotenusa é de {hipotenusa}");
             Validacao.AguardarTecla();
         }
 
+        // 35 Criar um algoritmo que leia quatro números e imprime a ​média aritmética​ dos quatro números.
+        public static void Ex35()
+        {
+            double media = 0;
+
+            for (int i = 1; i <= 4; i++)
+            {
+                Console.Write($"Informe o {i} número: ");
+                double num = double.Parse(Console.ReadLine());
+                media += num / 4;
+            }
+            Console.WriteLine($"A média aritmética é: {media}");
+            Validacao.AguardarTecla();
+        }
 
     }
 }

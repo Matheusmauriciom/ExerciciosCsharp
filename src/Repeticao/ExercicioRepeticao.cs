@@ -606,7 +606,7 @@ namespace ExericioCsharp.src.Repeticao
         //33 Criar um algoritmo que leia 15 valores inteiros positivos e apresente a soma dos valores menores que 40.
         public static void Ex33()
         {
-                int soma = 0;
+            int soma = 0;
 
             for (int i = 1; i <= 15; i++)
             {
@@ -619,7 +619,7 @@ namespace ExericioCsharp.src.Repeticao
                     i--;
                 }
 
-                if(num <= 40)
+                if (num <= 40)
                 {
                     soma += num;
                 }
@@ -627,26 +627,59 @@ namespace ExericioCsharp.src.Repeticao
             Console.WriteLine($"A soma dos valores menores que 40 é de {soma}");
             Validacao.AguardarTecla();
         }
-        
+
         //34 Criar um algoritmo que leia 10 valores inteiros e apresente a quantidade de números negativos.
         public static void Ex34()
-        {   
+        {
             int negativo = 0;
             for (int i = 1; i <= 10; i++)
             {
                 Console.Write($"Informe o {i}º número: ");
                 int num = int.Parse(Console.ReadLine());
 
-                if(num < 0)
+                if (num < 0)
                 {
-                   negativo = negativo + 1;
+                    negativo = negativo + 1;
                 }
-                
+
             }
             Console.WriteLine($"A quantidade de números negativos são de {negativo} números negativos ");
         }
-    
 
+
+        //35 Criar um algoritmo que leia 10 valores inteiros e apresente na tela quantos destes valores estão no intervalo [10,20] e quantos deles estão fora deste intervalo.
+        public static void Ex35()
+        {
+            List<int> dentroIntervalo = new List<int>();
+            List<int> foraIntervalo = new List<int>();
+
+            Console.WriteLine("Informe 10 valores inteiros.");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                int valor = Validacao.ValidarNumero($"Informe o {i}º valor: ");
+
+                if (valor < 0)
+                {
+                    Console.WriteLine("Informe um número inteiro.");
+                    return;
+                }
+
+                if (valor >= 10 && valor <= 20)
+                {
+                    dentroIntervalo.Add(valor);
+                }
+                else
+                {
+                    foraIntervalo.Add(valor);
+                }
+
+            }
+            Console.WriteLine("Valores dentro do intervalo de [10,20]: " + string.Join(", ", dentroIntervalo));
+            Console.WriteLine("Valores fora do intervalo de [10,20]: " + string.Join(", ", foraIntervalo));
+            Validacao.AguardarTecla();
+        }
     }
 }
+
 

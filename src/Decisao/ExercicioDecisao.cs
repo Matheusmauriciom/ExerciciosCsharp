@@ -678,26 +678,27 @@ namespace ExericioCsharp.src.Decisao
             double nota3 = Validacao.ValidarNumeroDouble("Informe a terceira nota: ");
 
             double media = (nota1 + nota2 + nota3) / 3;
-            
-            if(media >= 9)
+
+            if (media >= 9)
             {
                 Console.WriteLine($"Sua média foi de {media:F2} e sua menção E (Exelecente)");
             }
-            else if(media >= 7 && media <9 )
+            else if (media >= 7 && media < 9)
             {
                 Console.WriteLine($"Sua média foi de {media:F2} e sua menção B (Bom)");
             }
-            else if(media >= 5 && media <7)
+            else if (media >= 5 && media < 7)
             {
                 Console.WriteLine($"Sua média foi de {media:F2} e sua menção S (Suficiente)");
             }
-            else{
+            else
+            {
                 Console.WriteLine($"Sua média foi de {media:F2} e sua menção I (insuficiente)");
             }
             Validacao.AguardarTecla();
 
         }
-    
+
         /* 34 Criar um algoritmo que leia a idade de um nadador e apresenta na tela a sua categoria seguindo as regras:
 
                 CATEGORIA                    IDADE
@@ -710,32 +711,74 @@ namespace ExericioCsharp.src.Decisao
         public static void Ex34()
         {
             int idade = Validacao.ValidarNumero("Informe sua idade: ");
-            
-            if(idade < 5)
+
+            if (idade < 5)
             {
                 Console.WriteLine("Sem categoria");
             }
-            else if (idade >= 5 && idade <=7)
+            else if (idade >= 5 && idade <= 7)
             {
                 Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Infantil A");
             }
-            else if (idade >= 8 && idade <=10)
+            else if (idade >= 8 && idade <= 10)
             {
                 Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Infantil B");
             }
-            else if (idade >= 11 && idade <=13)
+            else if (idade >= 11 && idade <= 13)
             {
                 Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Juvenil A");
             }
-            else if (idade >= 14 && idade <=17)
+            else if (idade >= 14 && idade <= 17)
             {
                 Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Juvenil B");
             }
-            else{
+            else
+            {
                 Console.WriteLine($"Sua idade é de {idade} anos e sua categoria é: Sênior");
             }
             Validacao.AguardarTecla();
+
+        }
+
+
+        /*35 Criar um algoritmo que leia o código de um livro e apresente na tela a categoria do livro, conforme a tabela abaixo: 
+
+                Código Livro                  Categoria
+                    A                          Ficção
+                    B                          Não-Ficção                                
+                    C                          Auto-Ajuda
+            Qualquer outro código              Inválido
+        */
+        public static void Ex35()
+        {   
             
+            Console.WriteLine();
+            Console.WriteLine("Código Livro\t\t\tCategoria");
+            Console.WriteLine("\tA\t\t\tFicção");
+            Console.WriteLine("\tB\t\t\tNão-Ficção");
+            Console.WriteLine("\tC\t\t\tAuto-Ajuda");
+            Console.WriteLine("Qualquer outro código\t\tInválido");
+            Console.WriteLine();
+
+            Console.Write("Informe o código:  ");
+            string codigo = Console.ReadLine().ToUpper();
+
+            switch (codigo)
+            {
+                case "A":
+                    Console.WriteLine("Ficção");
+                    break;
+                case "B":
+                    Console.WriteLine("Não-Ficção ");
+                    break;
+                case "C":
+                    Console.WriteLine("Auto-Ajuda");
+                    break;
+                default:
+                    Console.WriteLine("Inválido");
+                    break;
+            }
+            Validacao.AguardarTecla();
         }
     }
 }
