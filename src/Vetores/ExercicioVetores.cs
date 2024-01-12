@@ -44,9 +44,7 @@ namespace ExericioCsharp.src.Vetores
                 Console.WriteLine($"Elemento B[{i + 1}]: {arrayInteirosB[i]}");
 
             }
-
-
-
+            Validacao.AguardarTecla();
         }
 
 
@@ -55,7 +53,7 @@ namespace ExericioCsharp.src.Vetores
          Apresentar na tela a quantidade de valores modificados e o vetor modificado. */
 
         public static void Ex02()
-        {
+        {   Console.WriteLine("Informe 7 números:");
             int[] arrayInteiros = new int[7];
 
             // Loop para receber os valores e armazená-los no array
@@ -96,6 +94,47 @@ namespace ExericioCsharp.src.Vetores
                     Console.Write(", ");
                 }
             }
+            Validacao.AguardarTecla();
         }
+   
+        /* 03- Criar um programa que leia um vetor de 10 posições de valores inteiros e em seguida leia dois valores inteiros X e Y quaisquer correspondentes a duas posições no vetor. 
+        Ao final apresentar na tela a soma dos valores encontrados nas posições X e Y. */
+        public static void Ex03()
+        {   Console.WriteLine("Informe 10 números:");
+            
+            int [] arrayInteiros = new int [10];
+            Random random = new Random(); // classe random
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Informe o valor {i + 1}: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    arrayInteiros[i] = valor;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um número inteiro.");
+                    i--; // Decrementa o índice para repetir a entrada para o mesmo elemento do array
+                }
+            }
+
+            // Escolher dois indices X e Y (aleatorios)
+            int indice1 = random.Next(10);
+            int indice2;
+
+            // Garantir que os dois índices não são iguais
+            do{
+                indice2 = random.Next(10);
+            }
+            while (indice2 == indice1);
+
+            //somar
+            int soma = arrayInteiros[indice1] + arrayInteiros[indice2];
+            Console.WriteLine($"Valores escolhidos aleatoriamente: {arrayInteiros[indice1]} e {arrayInteiros[indice2]}");
+            Console.WriteLine($"A soma desses valores é: {soma}");
+            Validacao.AguardarTecla();
+        }
+
     }
 }
