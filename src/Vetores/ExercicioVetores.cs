@@ -53,7 +53,8 @@ namespace ExericioCsharp.src.Vetores
          Apresentar na tela a quantidade de valores modificados e o vetor modificado. */
 
         public static void Ex02()
-        {   Console.WriteLine("Informe 7 números:");
+        {
+            Console.WriteLine("Informe 7 números:");
             int[] arrayInteiros = new int[7];
 
             // Loop para receber os valores e armazená-los no array
@@ -96,13 +97,14 @@ namespace ExericioCsharp.src.Vetores
             }
             Validacao.AguardarTecla();
         }
-   
+
         /* 03- Criar um programa que leia um vetor de 10 posições de valores inteiros e em seguida leia dois valores inteiros X e Y quaisquer correspondentes a duas posições no vetor. 
         Ao final apresentar na tela a soma dos valores encontrados nas posições X e Y. */
         public static void Ex03()
-        {   Console.WriteLine("Informe 10 números:");
-            
-            int [] arrayInteiros = new int [10];
+        {
+            Console.WriteLine("Informe 10 números:");
+
+            int[] arrayInteiros = new int[10];
             Random random = new Random(); // classe random
 
             for (int i = 0; i < 10; i++)
@@ -124,7 +126,8 @@ namespace ExericioCsharp.src.Vetores
             int indice2;
 
             // Garantir que os dois índices não são iguais
-            do{
+            do
+            {
                 indice2 = random.Next(10);
             }
             while (indice2 == indice1);
@@ -134,6 +137,58 @@ namespace ExericioCsharp.src.Vetores
             Console.WriteLine($"Valores escolhidos aleatoriamente: {arrayInteiros[indice1]} e {arrayInteiros[indice2]}");
             Console.WriteLine($"A soma desses valores é: {soma}");
             Validacao.AguardarTecla();
+        }
+
+
+        /* 04 - Criar um programa que leia um vetor de 12 posições de valores inteiros e em seguida leia um valor inteiro X qualquer. 
+        Fazer uma busca do valor de X no vetor lido e informar a posição em que foi encontrado ou se não foi encontrado. */
+        public static void Ex04()
+        {
+            Console.WriteLine("Informe 12 números: ");
+            int[] arrayInteiros = new int[12];
+
+            for (int i = 0; i < 12; i++)
+            {
+                Console.Write($"Informe o valor {i + 1}: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    arrayInteiros[i] = valor;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um número inteiro.");
+                    i--; // Decrementa o índice para repetir a entrada para o mesmo elemento do array
+                }
+            }
+
+
+            Console.WriteLine("Informe um valor inteiro X qualquer: ");
+            int valorX = int.Parse(Console.ReadLine());
+
+
+            // Encontrar o valor
+            List<int> posicoesEncontradas = new List<int>();
+
+            for (int i = 0; i < arrayInteiros.Length; i++)
+            {
+                if (arrayInteiros[i] == valorX)
+                {
+                    posicoesEncontradas.Add(i + 1);
+                }
+            }
+
+            if (posicoesEncontradas.Count > 0)
+            {
+                // Utilizo o string.Join para concatenar as posições encontradas na lista posicoesEncontradas.
+                // Isso me permite apresentar de maneira legível as diferentes posições onde o valor X foi encontrado,
+                // utilizando uma vírgula e um espaço como separadores na mensagem de saída.
+                Console.WriteLine($"O número {valorX} foi encontrado nas posições: {string.Join(", ", posicoesEncontradas)}");
+            }
+            else
+            {
+                Console.WriteLine($"O número {valorX} não foi encontrado no vetor.");
+            }
+
         }
 
     }
