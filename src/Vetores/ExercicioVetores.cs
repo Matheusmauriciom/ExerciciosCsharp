@@ -188,8 +188,89 @@ namespace ExericioCsharp.src.Vetores
             {
                 Console.WriteLine($"O número {valorX} não foi encontrado no vetor.");
             }
-
+            Validacao.AguardarTecla();
         }
 
+        /* 05 - Criar uma programa que copie o conteúdo de um vetor em um segundo vetor. A programa deve retornar o vetor copiado.  */
+        public static void Ex05()
+        {
+            Console.WriteLine("Informe 5 números: ");
+
+            double[] vetor = new double[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Informe o valor {i + 1}: ");
+                if (double.TryParse(Console.ReadLine(), out double valor))
+                {
+                    vetor[i] = valor;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um número inteiro.");
+                    i--; // Decrementa o índice para repetir a entrada para o mesmo elemento do array
+                }
+            }
+
+            double[] vetorCopiado = vetor;
+
+            for (int i = 0; i < vetorCopiado.Length; i++)
+            {
+                Console.WriteLine($"Vetor copiado: [{vetorCopiado[i]}]");
+            }
+            Validacao.AguardarTecla();
+        }
+
+        /* 06- Criar uma programa que some o conteúdo de dois vetores e armazene o resultado em um terceiro vetor. A programa deve retornar o terceiro vetor. */
+        public static void Ex06()
+        {
+            Console.WriteLine("Informe 3 valores para o vetor A e vetor B.");
+
+            // Vetor A
+            int[] vetorA = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do vetor A: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    vetorA[i] = valor;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um número inteiro.");
+                    i--; // Decrementa o índice para repetir a entrada para o mesmo elemento do array
+                }
+            }
+
+            Console.WriteLine();
+
+            // Vetor B
+            int[] vetorB = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do vetor B: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    vetorB[i] = valor;
+                }
+            }
+
+            // Soma dos vetores A e B
+            int[] vetorSoma = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                vetorSoma[i] = vetorA[i] + vetorB[i];
+            }
+
+            // Exibindo o vetor resultante
+            Console.WriteLine("\nVetor resultante (soma de A e B):");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"{vetorSoma[i]} ");
+            }
+
+           Validacao.AguardarTecla();
+        }
+        
     }
 }
