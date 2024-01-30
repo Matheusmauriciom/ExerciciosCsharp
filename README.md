@@ -29,5 +29,6 @@ Além das soluções para os exercícios, este repositório inclui uma classe de
 - **ValidarTexto**: Para validar strings.
 - **AguardarTecla**: Para aguardar a tecla de confirmação do usuário.
 
-Esse desafio foi uma etapa significativa no meu aprendizado em C#, proporcionando não apenas respostas aos exercícios, mas também uma melhoria crucial na minha habilidade de pensar logicamente ao programar.
+Esses exercícios foram retirados do site [Exercícios de Programação](https://amignon.gitbook.io/exercicios-de-programacao/).
 
+Esse desafio foi uma etapa significativa no meu aprendizado em C#, proporcionando não apenas respostas aos exercícios, mas também uma melhoria crucial na minha habilidade de pensar logicamente ao programar.
