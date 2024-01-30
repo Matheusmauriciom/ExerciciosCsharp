@@ -272,5 +272,30 @@ namespace ExericioCsharp.src.Vetores
            Validacao.AguardarTecla();
         }
         
+        /* 07 - Criar um programa que leia um vetor de 10 elementos de inteiro e apresente a soma dos valores que estão nos índices pares do vetor. */
+        public static void Ex07()
+        {
+            int [] vetorElementos = new int [10];
+            for (int i = 0; i < 10; i++)
+            {   
+                Console.Write($"Informe o {i+1} º valor do vetor: ");
+                if(int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    vetorElementos[i] = valor;
+                }
+            }
+
+            int somaPares = 0;
+
+            for (int i = 0; i < vetorElementos.Length; i+=2)
+            {
+                somaPares += vetorElementos[i];
+            }
+            Console.WriteLine($"A soma dos valores nos índices pares do vetor é: {somaPares}.");
+           
+        }
+        
+    
     }
+    
 }
