@@ -269,17 +269,17 @@ namespace ExericioCsharp.src.Vetores
                 Console.Write($"{vetorSoma[i]} ");
             }
 
-           Validacao.AguardarTecla();
+            Validacao.AguardarTecla();
         }
-        
+
         /* 07 - Criar um programa que leia um vetor de 10 elementos de inteiro e apresente a soma dos valores que estão nos índices pares do vetor. */
         public static void Ex07()
         {
-            int [] vetorElementos = new int [10];
+            int[] vetorElementos = new int[10];
             for (int i = 0; i < 10; i++)
-            {   
-                Console.Write($"Informe o {i+1} º valor do vetor: ");
-                if(int.TryParse(Console.ReadLine(), out int valor))
+            {
+                Console.Write($"Informe o {i + 1} º valor do vetor: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
                 {
                     vetorElementos[i] = valor;
                 }
@@ -287,15 +287,52 @@ namespace ExericioCsharp.src.Vetores
 
             int somaPares = 0;
 
-            for (int i = 0; i < vetorElementos.Length; i+=2)
+            for (int i = 0; i < vetorElementos.Length; i += 2)
             {
                 somaPares += vetorElementos[i];
             }
             Console.WriteLine($"A soma dos valores nos índices pares do vetor é: {somaPares}.");
-           
+
         }
-        
-    
+
+        /* 08 Criar um programa que leia um vetor de 16 posições de valores inteiros e troque os 8 primeiros valores pelos 8 últimos valores e vice-versa. Ao final apresentar na tela os dados do vetor obtido. */
+        public static void Ex08()
+        {
+            int[] vetorPosicao = new int[16];
+            for (int i = 0; i < 16; i++)
+            {
+                Console.Write($"Informe o {i + 1} º valor do vetor: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    vetorPosicao[i] = valor;
+                }
+            }
+
+
+            for (int i = 0; i < 8; i++)
+            {
+                // Armazena temporariamente o valor dos primeiros 8 elementos do vetor
+                int temp = vetorPosicao[i]; // ler os 8 primeiros
+
+                // Atribui o valor dos últimos 8 elementos do vetor aos primeiros 8 elementos
+                vetorPosicao[i] = vetorPosicao[i + 8];
+
+                // Atribui o valor temporariamente armazenado (dos primeiros 8 elementos) aos últimos 8 elementos
+                vetorPosicao[i + 8] = temp;
+            }
+
+            Console.WriteLine("Vetor obtido após a troca:");
+            for (int i = 0; i < 16; i++)
+            {
+                Console.Write($"{vetorPosicao[i]} ");
+            }
+
+        }
+
+        /*09 - Criar um programa que leia dois vetores de 4 posições de valores inteiros. 
+        Criar outro vetor preenchendo-o nas posições pares com os valores do primeiro vetor e nas posições ímpares com os valores do segundo vetor. Apresentar na tela os dados do vetor criado.*/
+
     }
-    
-}
+    }
+
+
