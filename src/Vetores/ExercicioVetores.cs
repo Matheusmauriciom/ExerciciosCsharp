@@ -331,8 +331,48 @@ namespace ExericioCsharp.src.Vetores
 
         /*09 - Criar um programa que leia dois vetores de 4 posições de valores inteiros. 
         Criar outro vetor preenchendo-o nas posições pares com os valores do primeiro vetor e nas posições ímpares com os valores do segundo vetor. Apresentar na tela os dados do vetor criado.*/
+        public static void Ex09()
+        {
+            int[] primeiroVetor = new int[4]; // valores pares
+            int[] segundoVetor = new int[4]; // valores impares
 
+            for (int i = 0; i < 4; i++)
+            {
+                Console.Write($"Informe o {i + 1} º valor do primeiro vetor: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    primeiroVetor[i] = valor;
+                }
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                Console.Write($"Informe o {i + 1} º valor do segundo vetor: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    segundoVetor[i] = valor;
+                }
+            }
+
+            int[] vetorElementos = new int[8]; // 1 posição = impar // 2 posição = par
+
+            for (int i = 0; i < 4; i++)
+            {
+                // posição pares
+                vetorElementos[i * 2] = primeiroVetor[i];
+
+                // posição impar
+                vetorElementos[i * 2 + 1] = segundoVetor[i];
+            }
+            Console.WriteLine("Vetor criado com valores intercalados:");
+            foreach (var elemento in vetorElementos)
+            {
+                Console.Write(elemento + " ");
+            }
+        }
+    
+    
+    
     }
-    }
+}
 
 
