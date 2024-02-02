@@ -292,7 +292,7 @@ namespace ExericioCsharp.src.Vetores
                 somaPares += vetorElementos[i];
             }
             Console.WriteLine($"A soma dos valores nos índices pares do vetor é: {somaPares}.");
-
+             Validacao.AguardarTecla();
         }
 
         /* 08 Criar um programa que leia um vetor de 16 posições de valores inteiros e troque os 8 primeiros valores pelos 8 últimos valores e vice-versa. Ao final apresentar na tela os dados do vetor obtido. */
@@ -368,9 +368,99 @@ namespace ExericioCsharp.src.Vetores
             {
                 Console.Write(elemento + " ");
             }
+             Validacao.AguardarTecla();
         }
     
-    
+        /*10Criar um programa que leia uma determinada quantia a ser retirada em um caixa eletrônico e apresente a quantidade mínima de cédulas equivalente. 
+        As cédulas são de 50, 20 e 10. Utilizar sempre que possível cédulas de maior valor. O valor da quantia a ser retirada deve ser múltiplo de 10. 
+        Guardar em um vetor a quantidade de cada cédula. Apresentar os dados do vetor de cédulas na tela.*/
+        public static void Ex10()
+        {
+            Console.Write("Informe a quantia a ser retirada (múltiplo de 10): ");
+            if (int.TryParse(Console.ReadLine(), out int quantia) && quantia % 10 == 0)
+            {
+                // Definindo os valores das cédulas
+                int[] valoresCedulas = { 50, 20, 10 };
+
+                // Vetor para armazenar a quantidade de cada cédula
+                int[] quantidadeCedulas = new int[valoresCedulas.Length];
+
+                // Calculando a quantidade de cada cédula
+                for (int i = 0; i < valoresCedulas.Length; i++)
+                {
+                    quantidadeCedulas[i] = quantia / valoresCedulas[i];
+                    quantia %= valoresCedulas[i];
+                }
+
+                // Apresentando os dados do vetor de cédulas
+                Console.WriteLine("\nQuantidade de cédulas:");
+
+                for (int i = 0; i < valoresCedulas.Length; i++)
+                {
+                    Console.WriteLine($"{valoresCedulas[i]} reais: {quantidadeCedulas[i]} cédulas");
+                }
+            }
+            else
+            {
+                Console.WriteLine("A quantia informada não é um múltiplo de 10.");
+            }
+             Validacao.AguardarTecla();
+        }
+
+                /* 11 Criar um programa que leia um vetor de 10 posições de valores inteiros e decomponha-o em dois outros vetores de 5 posições, um contendo os elementos das posições ímpares e o outro contendo os elementos das posições pares. 
+        Por exemplo, se o vetor dado for v = {1, 5, 4, 7, 2, 8, 10, 11, 13, 16} o programa deve gerar os vetores u = {1, 4, 2, 10, 13} e w = {5, 7, 8, 11, 16}. 
+        Apresentar os valores dos vetores gerados na tela. */
+        public static void Ex11()
+        {
+            int[] vetorOriginal = new int[10];
+            int[] vetorPosicoesPares = new int[5];
+            int[] vetorPosicoesImpares = new int[5];
+
+            // Preencher o vetorOriginal
+            Console.WriteLine("Informe 10 valores inteiros para preencher o vetor:");
+            for (int i = 0; i < vetorOriginal.Length; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                if (int.TryParse(Console.ReadLine(), out int valor))
+                {
+                    vetorOriginal[i] = valor;
+                }
+            }
+
+            // Decompor o vetorOriginal em vetorPosicoesPares e vetorPosicoesImpares
+            int indicePares = 0;
+            int indiceImpares = 0;
+
+            for (int i = 0; i < vetorOriginal.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    vetorPosicoesPares[indicePares] = vetorOriginal[i];
+                    indicePares++;
+                }
+                else
+                {
+                    vetorPosicoesImpares[indiceImpares] = vetorOriginal[i];
+                    indiceImpares++;
+                }
+            }
+
+            // Exibir os valores dos vetores gerados
+            Console.WriteLine("\nValores do vetor de posições pares (u):");
+            foreach (var valor in vetorPosicoesPares)
+            {
+                Console.Write(valor + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("\nValores do vetor de posições ímpares (w):");
+            foreach (var valor in vetorPosicoesImpares)
+            {
+                Console.Write(valor + " ");
+            }
+            Console.WriteLine();
+             Validacao.AguardarTecla();
+        }
     
     }
 }
