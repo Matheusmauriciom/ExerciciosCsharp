@@ -292,7 +292,7 @@ namespace ExericioCsharp.src.Vetores
                 somaPares += vetorElementos[i];
             }
             Console.WriteLine($"A soma dos valores nos índices pares do vetor é: {somaPares}.");
-             Validacao.AguardarTecla();
+            Validacao.AguardarTecla();
         }
 
         /* 08 Criar um programa que leia um vetor de 16 posições de valores inteiros e troque os 8 primeiros valores pelos 8 últimos valores e vice-versa. Ao final apresentar na tela os dados do vetor obtido. */
@@ -368,9 +368,9 @@ namespace ExericioCsharp.src.Vetores
             {
                 Console.Write(elemento + " ");
             }
-             Validacao.AguardarTecla();
+            Validacao.AguardarTecla();
         }
-    
+
         /*10Criar um programa que leia uma determinada quantia a ser retirada em um caixa eletrônico e apresente a quantidade mínima de cédulas equivalente. 
         As cédulas são de 50, 20 e 10. Utilizar sempre que possível cédulas de maior valor. O valor da quantia a ser retirada deve ser múltiplo de 10. 
         Guardar em um vetor a quantidade de cada cédula. Apresentar os dados do vetor de cédulas na tela.*/
@@ -404,12 +404,12 @@ namespace ExericioCsharp.src.Vetores
             {
                 Console.WriteLine("A quantia informada não é um múltiplo de 10.");
             }
-             Validacao.AguardarTecla();
+            Validacao.AguardarTecla();
         }
 
-                /* 11 Criar um programa que leia um vetor de 10 posições de valores inteiros e decomponha-o em dois outros vetores de 5 posições, um contendo os elementos das posições ímpares e o outro contendo os elementos das posições pares. 
-        Por exemplo, se o vetor dado for v = {1, 5, 4, 7, 2, 8, 10, 11, 13, 16} o programa deve gerar os vetores u = {1, 4, 2, 10, 13} e w = {5, 7, 8, 11, 16}. 
-        Apresentar os valores dos vetores gerados na tela. */
+        /* 11 Criar um programa que leia um vetor de 10 posições de valores inteiros e decomponha-o em dois outros vetores de 5 posições, um contendo os elementos das posições ímpares e o outro contendo os elementos das posições pares. 
+Por exemplo, se o vetor dado for v = {1, 5, 4, 7, 2, 8, 10, 11, 13, 16} o programa deve gerar os vetores u = {1, 4, 2, 10, 13} e w = {5, 7, 8, 11, 16}. 
+Apresentar os valores dos vetores gerados na tela. */
         public static void Ex11()
         {
             int[] vetorOriginal = new int[10];
@@ -459,10 +459,63 @@ namespace ExericioCsharp.src.Vetores
                 Console.Write(valor + " ");
             }
             Console.WriteLine();
-             Validacao.AguardarTecla();
+            Validacao.AguardarTecla();
         }
-    
+        /* 12 Criar um programa que leia um vetor de 10 posições de valores inteiros e decomponha-o em dois outros vetores de 5 posições, um contendo os elementos das posições ímpares e o outro contendo os elementos das posições pares. 
+        Por exemplo, se o vetor dado for v = {1, 5, 4, 7, 2, 8, 10, 11, 13, 16} o programa deve gerar os vetores u = {1, 4, 2, 10, 13} e w = {5, 7, 8, 11, 16}. 
+        Apresentar os valores dos vetores gerados na tela. */
+
+        public static void Ex12()
+        {
+            // Declarando o vetor de 10 posições
+            int[] vetorOriginal = new int[10];
+
+            // Lendo valores para o vetor
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Digite o valor para a posição {i + 1}: ");
+                vetorOriginal[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            // Declarando os vetores para posições pares e ímpares
+            int[] vetorPares = new int[5];
+            int[] vetorImpares = new int[5];
+
+            // Decompondo o vetor original em pares e ímpares
+            int indicePares = 0;
+            int indiceImpares = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    vetorPares[indicePares] = vetorOriginal[i];
+                    indicePares++;
+                }
+                else
+                {
+                    vetorImpares[indiceImpares] = vetorOriginal[i];
+                    indiceImpares++;
+                }
+            }
+
+            // Mostrando os resultados na tela
+            Console.WriteLine("\nVetor de Posições Pares:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"{vetorPares[i]} ");
+            }
+
+            Console.WriteLine("\nVetor de Posições Ímpares:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"{vetorImpares[i]} ");
+            }
+
+            Validacao.AguardarTecla();
+        }
     }
 }
+
 
 
